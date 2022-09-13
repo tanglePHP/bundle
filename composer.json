@@ -1,0 +1,30 @@
+{
+  "name": "tanglephp/bundle",
+  "type": "library",
+  "description": "tanglePHP full bundle to interact with Shimmer/IOTA (Stardust & Chrysalis)",
+  "keywords": [
+    "iota",
+    "shimmer",
+    "stardust",
+    "tangle",
+    "crypto"
+  ],
+  "homepage": "https://github.com/tanglePHP",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Stefan Braun",
+      "homepage": "https://tanglephp.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/tanglePHP/bundle/issues",
+    "source": "https://github.com/tanglePHP/bundle",
+    "chat": "https://discord.iota.org/"
+  },
+  "require": {
+    "php": ">=8.1.0",
+    "tanglephp/network": "*"
+  }
+}
