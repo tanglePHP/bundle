@@ -30,10 +30,30 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 
 Or download composer.phar into your project root.
 
-2 . Execute this in your project root.
+2 . create composer.json
+
+```JSON 
+{
+  "require": {
+    "php": ">=8.1.0",
+    "tanglephp/network": "*"
+  }
+}
+```
+
+Or download tanglephp/bundle.
+
+
+3 . Execute this in your project root.
 
 > php composer.phar install
 
+
+4 . Autoload Dependencies
+
+If your packages specify autoloading information, you can autoload all the dependencies by adding this to your code:
+
+> require 'vendor/autoload.php';
 
 
 
