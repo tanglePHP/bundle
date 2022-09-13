@@ -25,8 +25,14 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 
 #### composer
 
-Install Composer In Your Project
+1 .Install Composer In Your Project
 > curl -sS https://getcomposer.org/installer | php
+
+Or download composer.phar into your project root.
+
+2 . Execute this in your project root.
+
+> php composer.phar install
 
 
 
