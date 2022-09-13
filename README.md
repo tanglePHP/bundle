@@ -36,6 +36,10 @@ Or download composer.phar into your project root.
 {
   "require": {
     "php": ">=8.1.0",
+    "ext-curl": "*",
+    "ext-sodium": "*",
+    "ext-mbstring": "*",
+    "ext-bcmath": "*",
     "tanglephp/network": "*"
   }
 }
