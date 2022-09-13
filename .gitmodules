@@ -1,0 +1,21 @@
+[submodule "packages/core"]
+	path = packages/core
+	url = https://github.com/tanglephp/core.git
+[submodule "packages/network"]
+	path = packages/network
+	url = https://github.com/tanglephp/network.git
+[submodule "packages/singlenode-client"]
+	path = packages/singlenode-client
+	url = https://github.com/tanglephp/singlenode-client.git
+[submodule "packages/indexer-plugin"]
+	path = packages/indexer-plugin
+	url = https://github.com/tanglephp/indexer-plugin.git
+[submodule "packages/faucet-client"]
+	path = packages/faucet-client
+	url = https://github.com/tanglephp/faucet-client.git
+[submodule "packages/chronicle-client"]
+	path = packages/chronicle-client
+	url = https://github.com/tanglephp/chronicle-client.git
+[submodule "packages/market-client"]
+	path = packages/market-client
+	url = https://github.com/tanglephp/market-client.git
