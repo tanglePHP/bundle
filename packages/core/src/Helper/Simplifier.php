@@ -1,5 +1,6 @@
 <?php namespace tanglePHP\Core\Helper;
 
+use Exception;
 use tanglePHP\Core\Crypto\Bip39;
 use tanglePHP\Core\Crypto\Mnemonic;
 use tanglePHP\Core\Exception\Helper as HelperException;
@@ -36,5 +37,19 @@ final class Simplifier {
    */
   static public function reverseMnemonic(string|array $words): Mnemonic {
     return (new Bip39())->reverseMnemonic($words);
+  }
+
+  /**
+   * @param string|array $words
+   *
+   * @return bool
+   */
+  static public function checkMnemonic(string|array $words): bool {
+    try {
+      self::reverseMnemonic($words);
+    } catch(Exception) {
+      return false;
+    }
+    return true;
   }
 }
