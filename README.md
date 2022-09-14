@@ -21,9 +21,16 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 
 ---
 
-# Installation
 
-#### composer
+## - Installation (github)
+
+> https://github.com/tanglePHP/bundle/releases
+
+2 . Autoload Dependencies
+
+> require 'autoload.php';
+
+## - Installation (composer)
 
 1 .Install Composer In Your Project
 > curl -sS https://getcomposer.org/installer | php
