@@ -21,7 +21,7 @@ final class SingleNode extends AbstractEndpoint {
   public function init(): void {
     parent::init();
 
-    $this->needFeature('PoW');
+    $this->needFeature('pow');
     $this->needPlugin('core', 'v2');
     $this->needPlugin('indexer', 'v1');
   }
