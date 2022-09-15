@@ -92,6 +92,7 @@ final class Connect {
       case 'dlt.green':
       case 'dltgreen':
       case 'dltgreen:testnet':
+      case 'dlt.green:testnet':
         $url = (new pool_dltgreen($this, 'testnet'))->getURL();
         break;
       case null:
@@ -132,6 +133,13 @@ final class Connect {
       #$this->ENDPOINT->faucet->init();
     }
     $this->EXPLORER = $protocolClass->explorerURL . (str_ends_with($protocolClass->explorerURL, '/') ? '' : '/');
+  }
+
+  /**
+   * @return array
+   */
+  public function getInfo(): array {
+    return $this->info;
   }
 
   /**
