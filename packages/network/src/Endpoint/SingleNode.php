@@ -20,8 +20,12 @@ final class SingleNode extends AbstractEndpoint {
    */
   public function init(): void {
     parent::init();
-
-    $this->needFeature('pow');
+    if($this->network->info['protocolVersion'] == "1") {
+      $this->needFeature('PoW');
+    }
+    else {
+      $this->needFeature('pow');
+    }
     $this->needPlugin('core', 'v2');
     $this->needPlugin('indexer', 'v1');
   }
