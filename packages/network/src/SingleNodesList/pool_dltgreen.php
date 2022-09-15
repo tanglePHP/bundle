@@ -54,7 +54,7 @@ final class pool_dltgreen extends AbstractSingleNodesList {
         if((($nodeType == "Bee" || $nodeType == "Hornet") && $this->net == "mainnet" || ($nodeType == "ShimmerBee" || $nodeType == "ShimmerHornet") && $this->net == "testnet") && $node['isHealthy'] == "1") {
           $features = $node['Features'] ?? [];
 
-          if(in_array('PoW', $features)) {
+          if(in_array('PoW', $features) || in_array('pow', $features)) {
             $this->urls[] = 'https://' . $node['Domain'] . ':' . $node['Port'] . '/';
           }
         }
