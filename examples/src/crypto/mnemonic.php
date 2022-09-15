@@ -13,6 +13,10 @@
   echo "mnemonic: " . $mnemonic . PHP_EOL;
   echo "###################################################################################" . PHP_EOL;
 
+  // return Seed
+  echo "mnemonicSeed: " . $mnemonic->__toSeed() . PHP_EOL;
+  echo "###################################################################################" . PHP_EOL;
+
 
   // check mnemonic Words
   $check = \tanglePHP\Core\Helper\Simplifier::checkMnemonic('dynamic giant museum toddler six deny defense ostrich bomb access mercy blood explain muscle shoot shallow glad autumn author calm heavy hawk abuse rally');
