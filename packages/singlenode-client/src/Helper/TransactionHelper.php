@@ -5,6 +5,7 @@ use tanglePHP\Core\Helper\Converter;
 use tanglePHP\Core\Helper\Hash;
 use tanglePHP\Core\Helper\JSON;
 use tanglePHP\Core\Helper\Keys;
+use tanglePHP\Core\Helper\Simplifier;
 use tanglePHP\Core\Models\AbstractAmount;
 use tanglePHP\Network\Connect as Network;
 use tanglePHP\SingleNodeClient\Action\checkTransaction;
@@ -15,7 +16,6 @@ use tanglePHP\SingleNodeClient\Api\v2\NativeToken;
 use tanglePHP\SingleNodeClient\Api\v2\Output;
 use tanglePHP\SingleNodeClient\Api\v2\Payload\TaggedData;
 use tanglePHP\SingleNodeClient\Api\v2\Payload\Transaction;
-use tanglePHP\SingleNodeClient\Api\v2\Request\SubmitBlock;
 use tanglePHP\SingleNodeClient\Api\v2\Response\Error;
 use tanglePHP\SingleNodeClient\Api\v2\Response\Info\Protocol;
 use tanglePHP\SingleNodeClient\Api\v2\TokenScheme;
@@ -35,7 +35,6 @@ use tanglePHP\SingleNodeClient\Api\v2\Response\Output\Basic;
 use tanglePHP\SingleNodeClient\Api\v2\Response\Output\Foundry;
 use tanglePHP\SingleNodeClient\Api\v2\Response\Output\NFT;
 use tanglePHP\SingleNodeClient\Connector;
-use tanglePHP\Core\Crypto\Bip32Path;
 use tanglePHP\Core\Crypto\Ed25519;
 use tanglePHP\Core\Exception\Api as ApiException;
 use tanglePHP\Core\Exception\Converter as ConverterException;
@@ -535,21 +534,6 @@ final class TransactionHelper {
   }
 
   /**
-   * @param int $coinType
-   * @param int $accountIndex
-   * @param int $addressIndex
-   *
-   * @return Bip32Path
-   */
-  static public function createAddressPath(int $coinType, int $accountIndex = 0, int $addressIndex = 0): Bip32Path {
-    $addressPath = new Bip32Path(("m/44'/0'/0'/0'/0'"));
-    $addressPath->setAccountIndex($accountIndex);
-    $addressPath->setAddressIndex($addressIndex);
-
-    return $addressPath->setCoinType($coinType);
-  }
-
-  /**
    * @param Ed25519Seed $ed25519Seed
    * @param Connector   $client
    * @param int         $accountIndex
@@ -562,7 +546,7 @@ final class TransactionHelper {
    * @throws TypeException
    */
   static public function createAddressSeed(Ed25519Seed $ed25519Seed, Connector $client, int $accountIndex = 0, int $addressIndex = 0): Ed25519Seed {
-    return $ed25519Seed->generateSeedFromPath(self::createAddressPath(self::getClientProtocol_coinType($client), $accountIndex, $addressIndex));
+    return $ed25519Seed->generateSeedFromPath(Simplifier::createAddressPath(self::getClientProtocol_coinType($client), $accountIndex, $addressIndex));
   }
 
   /**
@@ -579,7 +563,7 @@ final class TransactionHelper {
    * @throws TypeException
    */
   static public function createAddress(Ed25519Seed $ed25519Seed, Connector $client, int $accountIndex = 0, int $addressIndex = 0): array {
-    $addressSeed   = $ed25519Seed->generateSeedFromPath(self::createAddressPath(self::getClientProtocol_coinType($client), $accountIndex, $addressIndex));
+    $addressSeed   = $ed25519Seed->generateSeedFromPath(Simplifier::createAddressPath(self::getClientProtocol_coinType($client), $accountIndex, $addressIndex));
     $address       = new Ed25519Address(($addressSeed->keyPair())->public);
     $addressBech32 = self::createBech32FromEd25519Address($address, $client);
 
@@ -717,7 +701,7 @@ final class TransactionHelper {
   }
 
   /**
-   * @param string $hexString
+   * @param string|null $hexString
    *
    * @return array
    * @throws ConverterException
