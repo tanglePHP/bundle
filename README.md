@@ -47,6 +47,8 @@ Or download composer.phar into your project root.
     "ext-sodium": "*",
     "ext-mbstring": "*",
     "ext-bcmath": "*",
+    "ext-ctype": "*",
+    "ext-openssl": "*",
     "tanglephp/network": "*"
   }
 }
@@ -76,6 +78,8 @@ If your packages specify autoloading information, you can autoload all the depen
     + [ext-mbstring](https://php.net/manual/en/book.mbstring.php)
     + [ext-bcmath](https://php.net/manual/en/book.bc.php)
     + [ext-sodium](https://php.net/manual/en/book.sodium.php)
+    + [ext-ctype](https://www.php.net/manual/de/book.ctype.php)
+    + [ext-openssl](https://www.php.net/manual/de/book.openssl.php)
 + PHP Library:
     + [tanglePHP/network](https://github.com/tanglePHP/network)
 

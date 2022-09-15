@@ -29,6 +29,8 @@
     "ext-sodium": "*",
     "ext-mbstring": "*",
     "ext-bcmath": "*",
+    "ext-ctype": "*",
+    "ext-openssl": "*",
     "tanglephp/network": "*"
   }
 }
