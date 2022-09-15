@@ -57,7 +57,7 @@ abstract class AbstractEndpoint {
    * @throws HelperException
    */
   protected function needFeature($name): void {
-    if(!in_array($name, $this->network->info['features'])) {
+    if(!isset($name, $this->network->info['features'])) {
       throw new HelperException("Node doesn't support '$name', please connect to a node with '$name' feature.");
     }
   }
