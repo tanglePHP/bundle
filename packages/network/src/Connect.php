@@ -143,6 +143,13 @@ final class Connect {
   }
 
   /**
+   * @return string
+   */
+  public function getProtocolVersion(): string {
+    return $this->info['protocolVersion'];
+  }
+
+  /**
    * @return bool
    */
   public function hasChronicleNode(): bool {
