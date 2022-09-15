@@ -55,6 +55,8 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
     + [ext-mbstring](https://php.net/manual/en/book.mbstring.php)
     + [ext-bcmath](https://php.net/manual/en/book.bc.php)
     + [ext-sodium](https://php.net/manual/en/book.sodium.php)
+    + [ext-ctype](https://www.php.net/manual/de/book.ctype.php)
+    + [ext-openssl](https://www.php.net/manual/de/book.openssl.php)
 
 ---
 
