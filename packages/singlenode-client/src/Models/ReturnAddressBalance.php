@@ -39,4 +39,8 @@ final class ReturnAddressBalance extends AbstractReturn {
    * @var ResponseArray
    */
   public ResponseArray $marketData;
+  /**
+   * @var ResponseArray
+   */
+  public ResponseArray $marketData_balance;
 }

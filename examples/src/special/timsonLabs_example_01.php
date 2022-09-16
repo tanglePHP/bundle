@@ -36,16 +36,13 @@
 
     /**
      * @param string $address
-     * @param bool   $calcMarketData
      *
      * @return JSON|ReturnAddressBalance
      * @throws Api
      * @throws Converter
      * @throws Helper
      */
-    public function getBalance(string $address, bool $calcMarketData = true): JSON|ReturnAddressBalance {
-
-      $useNetwork = null;
+    public function getBalance(string $address): JSON|ReturnAddressBalance {
 
       if(str_starts_with($address, 'smr')) {
         $useNetwork = $this->networks['shimmer'] = $this->networks['shimmer'] ?? new Connect('shimmer:mainnet');
@@ -58,62 +55,43 @@
       }
       elseif(str_starts_with($address, 'atoi')) {
         $useNetwork = $this->networks['iota_devnet'] = $this->networks['iota_devnet'] ?? new Connect('iota:devnet');
+      } else {
+        // default to shimmer_testnet
+      $useNetwork = $this->networks['shimmer_testnet'] = $this->networks['shimmer_testnet'] ?? new Connect('shimmer:testnet');
       }
 
-      $ret = (new getBalance($useNetwork))->address($address)
+      return (new getBalance($useNetwork))->address($address)
                                           ->run();
-      if(isset($ret->balance)) {
-        if($calcMarketData) {
-          $ret->calcedMarketData = $this->calcMarketData((int)$ret->balance, $ret->marketData->__toArray());
-        }
-      }
-
-      return $ret;
     }
 
-    /**
-     * @param int   $balance
-     * @param array $marketData
-     *
-     * @return array
-     */
-    public function calcMarketData(int $balance, array $marketData): array {
-      [$coin] = array_keys($marketData);
-      //
-      return [
-        'balance'     => $balance,
-        'balanceCalc' => $balance / 1000000,
-        'coin'        => $coin,
-        'price'       => $marketData[$coin],
-        'calc'        => [
-          'usd' => $balance / 1000000 * $marketData[$coin]['usd'],
-          'eur' => $balance / 1000000 * $marketData[$coin]['eur'],
-        ],
-      ];
-    }
   }
   $example = new timsonLabs_example_01();
-  $ret     = $example->getBalance('atoi1qqghchyvvegq3jt0a4jg5392t63zmfhk0pkqj8czpelr7ey67ekgsat9sky', true);
-  print_r($ret->calcedMarketData);
-
+  $ret     = $example->getBalance('atoi1qqghchyvvegq3jt0a4jg5392t63zmfhk0pkqj8czpelr7ey67ekgsat9sky');
+  if(isset($ret->balance)) {
+    print_r($ret->marketData_balance->__toArray());
+  } else {
+    // handle return!
+    echo $ret;
+  }
   // outputs like this
   /*
-  Array
+    Array
     (
+        [last_updated_at] => 1663345383
         [balance] => 10000000
         [balanceCalc] => 10
         [coin] => iota
         [price] => Array
             (
-                [usd] => 0.261515
-                [eur] => 0.262077
-                [last_updated_at] => 1663325034
+                [usd] => 0.260018
+                [eur] => 0.259846
+                [last_updated_at] => 1663345383
             )
 
         [calc] => Array
             (
-                [usd] => 2.61515
-                [eur] => 2.62077
+                [usd] => 2.60018
+                [eur] => 2.59846
             )
 
     )

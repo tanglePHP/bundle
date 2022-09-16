@@ -62,16 +62,18 @@ final class getBalance extends AbstractAction {
     $ret = $this->client->v1->address($this->addressBech32);
     //
     if($this->settings['addMarketData']) {
-      $marketData = $this->client->ENDPOINT->network->marketServer->price();
+      $marketData         = $this->client->ENDPOINT->network->marketServer->price();
+      $marketData_balance = TransactionHelper::calcMarketData($ret->balance, $marketData->__toArray());
     }
 
     return new ReturnAddressBalance([
-      'balance'       => (string)$ret->balance,
-      'addressBech32' => $this->addressBech32,
-      'nativeTokens'  => [],
-      'ledgerIndex'   => $ret->ledgerIndex,
-      'filter'        => $this->query,
-      'marketData'    => $marketData ?? null,
+      'balance'            => (string)$ret->balance,
+      'addressBech32'      => $this->addressBech32,
+      'nativeTokens'       => [],
+      'ledgerIndex'        => $ret->ledgerIndex,
+      'filter'             => $this->query,
+      'marketData'         => $marketData ?? null,
+      'marketData_balance' => $marketData_balance ?? null,
     ], $this->client->ENDPOINT->network);
   }
 
@@ -103,21 +105,23 @@ final class getBalance extends AbstractAction {
       }
       $cursor = $response->cursor ?? false;
     } while($cursor && count($response->items->__toArray()) > 0);
-
     //
     if($this->settings['addMarketData']) {
-      $marketData = $this->client->ENDPOINT->network->marketServer->price();
+      $marketData         = $this->client->ENDPOINT->network->marketServer->price();
+      $marketData_balance = TransactionHelper::calcMarketData($total, $marketData->__toArray());
     }
 
     return new ReturnAddressBalance([
-      'balance'       => (string)$total,
-      'addressBech32' => $this->addressBech32,
-      'nativeTokens'  => $nativeTokens,
-      'ledgerIndex'   => $ledgerIndex,
-      'filter'        => $this->query,
-      'marketData'    => $marketData ?? null,
+      'balance'            => (string)$total,
+      'addressBech32'      => $this->addressBech32,
+      'nativeTokens'       => $nativeTokens,
+      'ledgerIndex'        => $ledgerIndex,
+      'filter'             => $this->query,
+      'marketData'         => $marketData ?? null,
+      'marketData_balance' => $marketData_balance ?? null,
     ], $this->client->ENDPOINT->network);
   }
+
 
   /**
    * @return JSON

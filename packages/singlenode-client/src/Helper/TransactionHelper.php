@@ -755,6 +755,34 @@ final class TransactionHelper {
   }
 
   /**
+   * @param int   $balance
+   * @param array $marketData
+   *
+   * @return array
+   */
+  static public function calcMarketData(int $balance, array $marketData): array {
+    if(count($marketData) == 0) {
+      return [];
+    }
+
+    [$coin] = array_keys($marketData);
+    $balanceCalc = $balance / 1000000;
+
+    //
+    return [
+      'last_updated_at' => $marketData[$coin]['last_updated_at'] ?? null,
+      'balance'         => $balance,
+      'balanceCalc'     => $balanceCalc,
+      'coin'            => $coin,
+      'price'           => $marketData[$coin] ?? null,
+      'calc'            => [
+        'usd' => $balanceCalc * $marketData[$coin]['usd'] ?? null,
+        'eur' => $balanceCalc * $marketData[$coin]['eur'] ?? null,
+      ],
+    ];
+  }
+
+  /**
    * @param int    $code
    * @param string $msg
    * @param array  $metadata
