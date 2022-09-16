@@ -26,5 +26,7 @@
   // print filter informations
   echo $ret->filter . PHP_EOL;
   // print network informations
-  echo $ret->networkInfo;
+  echo $ret->networkInfo . PHP_EOL;
+  // print market informations
+  echo $ret->marketData . PHP_EOL;
 

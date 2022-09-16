@@ -60,6 +60,10 @@ final class getBalance extends AbstractAction {
    */
   private function run_V1(): ReturnAddressBalance {
     $ret = $this->client->v1->address($this->addressBech32);
+    //
+    if($this->settings['addMarketData']) {
+      $marketData = $this->client->ENDPOINT->network->marketServer->price();
+    }
 
     return new ReturnAddressBalance([
       'balance'       => (string)$ret->balance,
@@ -67,6 +71,7 @@ final class getBalance extends AbstractAction {
       'nativeTokens'  => [],
       'ledgerIndex'   => $ret->ledgerIndex,
       'filter'        => $this->query,
+      'marketData'    => $marketData ?? null,
     ], $this->client->ENDPOINT->network);
   }
 
@@ -99,12 +104,18 @@ final class getBalance extends AbstractAction {
       $cursor = $response->cursor ?? false;
     } while($cursor && count($response->items->__toArray()) > 0);
 
+    //
+    if($this->settings['addMarketData']) {
+      $marketData = $this->client->ENDPOINT->network->marketServer->price();
+    }
+
     return new ReturnAddressBalance([
       'balance'       => (string)$total,
       'addressBech32' => $this->addressBech32,
       'nativeTokens'  => $nativeTokens,
       'ledgerIndex'   => $ledgerIndex,
       'filter'        => $this->query,
+      'marketData'    => $marketData ?? null,
     ], $this->client->ENDPOINT->network);
   }
 
