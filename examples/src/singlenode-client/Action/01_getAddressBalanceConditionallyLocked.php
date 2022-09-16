@@ -26,3 +26,4 @@
   echo $ret->networkInfo . PHP_EOL;
   // print market informations
   echo $ret->marketData . PHP_EOL;
+  echo $ret->marketData_balance . PHP_EOL;
