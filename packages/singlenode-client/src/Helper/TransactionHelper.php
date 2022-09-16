@@ -1,5 +1,6 @@
 <?php namespace tanglePHP\SingleNodeClient\Helper;
 
+use tanglePHP\Core\Crypto\Mnemonic;
 use tanglePHP\Core\Exception\Helper;
 use tanglePHP\Core\Helper\Converter;
 use tanglePHP\Core\Helper\Hash;
@@ -7,6 +8,7 @@ use tanglePHP\Core\Helper\JSON;
 use tanglePHP\Core\Helper\Keys;
 use tanglePHP\Core\Helper\Simplifier;
 use tanglePHP\Core\Models\AbstractAmount;
+use tanglePHP\Network\Connect;
 use tanglePHP\Network\Connect as Network;
 use tanglePHP\SingleNodeClient\Action\checkTransaction;
 use tanglePHP\SingleNodeClient\Api\v2\Ed25519Signature;
@@ -534,35 +536,45 @@ final class TransactionHelper {
   }
 
   /**
-   * @param Ed25519Seed $ed25519Seed
-   * @param Connector   $client
-   * @param int         $accountIndex
-   * @param int         $addressIndex
+   * @param Ed25519Seed|Mnemonic|string|array $seedInput
+   * @param Network|Connector|string|null     $client
+   * @param int                               $accountIndex
+   * @param int                               $addressIndex
    *
    * @return Ed25519Seed
+   * @throws ApiException
    * @throws ConverterException
    * @throws CryptoException
    * @throws HelperException
    * @throws TypeException
    */
-  static public function createAddressSeed(Ed25519Seed $ed25519Seed, Connector $client, int $accountIndex = 0, int $addressIndex = 0): Ed25519Seed {
+  static public function createAddressSeed(Ed25519Seed|Mnemonic|string|array $seedInput, Connect|Connector|string $client = null, int $accountIndex = 0, int $addressIndex = 0): Ed25519Seed {
+    $ed25519Seed = new Ed25519Seed($seedInput);
+    //
+    $client = self::checkClient($client);
+
     return $ed25519Seed->generateSeedFromPath(Simplifier::createAddressPath(self::getClientProtocol_coinType($client), $accountIndex, $addressIndex));
   }
 
   /**
-   * @param Ed25519Seed $ed25519Seed
-   * @param Connector   $client
-   * @param int         $accountIndex
-   * @param int         $addressIndex
+   * @param Ed25519Seed|Mnemonic|string|array $seedInput
+   * @param Network|Connector|string|null     $client
+   * @param int                               $accountIndex
+   * @param int                               $addressIndex
    *
    * @return array
+   * @throws ApiException
    * @throws ConverterException
    * @throws CryptoException
    * @throws HelperException
    * @throws SodiumException
    * @throws TypeException
    */
-  static public function createAddress(Ed25519Seed $ed25519Seed, Connector $client, int $accountIndex = 0, int $addressIndex = 0): array {
+  static public function createAddress(Ed25519Seed|Mnemonic|string|array $seedInput, Connect|Connector|string $client = null, int $accountIndex = 0, int $addressIndex = 0): array {
+    $ed25519Seed = new Ed25519Seed($seedInput);
+    //
+    $client = self::checkClient($client);
+    //
     $addressSeed   = $ed25519Seed->generateSeedFromPath(Simplifier::createAddressPath(self::getClientProtocol_coinType($client), $accountIndex, $addressIndex));
     $address       = new Ed25519Address(($addressSeed->keyPair())->public);
     $addressBech32 = self::createBech32FromEd25519Address($address, $client);
@@ -572,6 +584,24 @@ final class TransactionHelper {
       $address,
       $addressBech32,
     ];
+  }
+
+  /**
+   * @param Ed25519Seed|Mnemonic|string|array $seedInput
+   * @param Network|Connector|string|null     $client
+   * @param int                               $accountIndex
+   * @param int                               $addressIndex
+   *
+   * @return string
+   * @throws ApiException
+   * @throws ConverterException
+   * @throws CryptoException
+   * @throws HelperException
+   * @throws SodiumException
+   * @throws TypeException
+   */
+  static public function createAddressBech32(Ed25519Seed|Mnemonic|string|array $seedInput, Connect|Connector|string $client = null, int $accountIndex = 0, int $addressIndex = 0): string {
+    return self::createAddress($seedInput, $client, $accountIndex, $addressIndex)[2];
   }
 
   /**
@@ -738,5 +768,24 @@ final class TransactionHelper {
       'message'  => $msg,
       'metadata' => $metadata,
     ]);
+  }
+
+  /**
+   * @param Network|Connector|string|null $client
+   *
+   * @return Connector
+   * @throws ApiException
+   * @throws HelperException
+   */
+  static private function checkClient(Connect|Connector|string $client = null): Connector {
+    if($client instanceof Connect) {
+      $client = $client->singleNode;
+    }
+    elseif(is_string($client)) {
+      $client = new Connect($client);
+      $client = $client->singleNode;
+    }
+
+    return $client;
   }
 }
