@@ -690,13 +690,17 @@ final class TransactionHelper {
       }
       if($settings['addMarketData']) {
         $marketData = $client->ENDPOINT->network->marketServer->price();
+        if($amount = $transactionPayload->essence->outputs[0]->amount ?? false) {
+          $marketData_balance = TransactionHelper::calcMarketData($amount, $marketData->__toArray());
+        }
       }
 
       return new ReturnSubmitBlock([
-        'blockId'     => $ret->blockId,
-        'check'       => $checked ?? null,
-        'marketData'  => $marketData ?? null,
-        'explorerUrl' => $client->ENDPOINT->network->getExplorerUrlBlock($ret->blockId),
+        'blockId'            => $ret->blockId,
+        'check'              => $checked ?? null,
+        'marketData'         => $marketData ?? null,
+        'marketData_balance' => $marketData_balance ?? null,
+        'explorerUrl'        => $client->ENDPOINT->network->getExplorerUrlBlock($ret->blockId),
       ], $client->ENDPOINT->network);
     }
 
@@ -764,7 +768,6 @@ final class TransactionHelper {
     if(count($marketData) == 0) {
       return [];
     }
-
     [$coin] = array_keys($marketData);
     $balanceCalc = $balance / 1000000;
 
