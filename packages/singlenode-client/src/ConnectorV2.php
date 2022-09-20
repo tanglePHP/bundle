@@ -264,7 +264,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function submit(TaggedData|Transaction $payload): ResponseSubmitBlock {
+  public function submit(TaggedData|Transaction $payload): ResponseSubmitBlock|JSON {
     $submitBlock = new RequestSubmitBlock($payload);
 
     return $this->submitBlock($submitBlock);
@@ -279,7 +279,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function submitBlock(RequestSubmitBlock $block): ResponseSubmitBlock {
+  public function submitBlock(RequestSubmitBlock $block): ResponseSubmitBlock|JSON {
     return $this->API_CALLER->route('blocks')
                             ->method('POST')
                             ->requestData($block->__toJSON())

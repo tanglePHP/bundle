@@ -1,5 +1,6 @@
 <?php namespace tanglePHP\MarketClient;
 
+use tanglePHP\Core\Helper\JSON;
 use tanglePHP\Core\Models\AbstractConnector;
 use tanglePHP\MarketClient\Api\CoinGecko\v3\Response\Coin;
 use tanglePHP\MarketClient\Api\CoinGecko\v3\Response\CoinHistory;
@@ -32,11 +33,11 @@ final class Connector extends AbstractConnector {
   }
 
   /**
-   * @return Info
+   * @return Info|JSON
    * @throws ApiException
    * @throws HelperException
    */
-  public function ping(): Info {
+  public function ping(): Info|JSON {
     return $this->API_CALLER->route('ping')
                             ->callback(Info::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -45,11 +46,11 @@ final class Connector extends AbstractConnector {
   /**
    * @param string|array $currencies
    *
-   * @return Price
+   * @return Price|JSON
    * @throws ApiException
    * @throws HelperException
    */
-  public function price(string|array $currencies = 'usd,eur'): Price {
+  public function price(string|array $currencies = 'usd,eur'): Price|JSON {
     if(is_array($currencies)) {
       $currencies = implode(',', $currencies);
     }
@@ -66,11 +67,11 @@ final class Connector extends AbstractConnector {
   }
 
   /**
-   * @return Coin
+   * @return Coin|JSON
    * @throws ApiException
    * @throws HelperException
    */
-  public function coin(): Coin {
+  public function coin(): Coin|JSON {
     return $this->API_CALLER->route('coins/' . $this->coinId)
                             ->callback(Coin::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -79,11 +80,11 @@ final class Connector extends AbstractConnector {
   /**
    * @param string|null $date
    *
-   * @return CoinHistory
+   * @return CoinHistory|JSON
    * @throws ApiException
    * @throws HelperException
    */
-  public function coinHistory(?string $date = null): CoinHistory {
+  public function coinHistory(?string $date = null): CoinHistory|JSON {
     $query = [
       'date' => $date ?? date("d-m-Y"),
     ];
@@ -95,14 +96,14 @@ final class Connector extends AbstractConnector {
   }
 
   /**
-   * @param string $vs_currency
    * @param int    $days
+   * @param string $vs_currency
    *
-   * @return CoinMarketChart
+   * @return CoinMarketChart|JSON
    * @throws ApiException
    * @throws HelperException
    */
-  public function coinMarketChart(int $days = 7, string $vs_currency = 'usd'): CoinMarketChart {
+  public function coinMarketChart(int $days = 7, string $vs_currency = 'usd'): CoinMarketChart|JSON {
     $query = [
       'vs_currency' => $vs_currency,
       'days'        => $days,
@@ -119,11 +120,11 @@ final class Connector extends AbstractConnector {
    * @param int|null $to
    * @param string   $vs_currency
    *
-   * @return CoinMarketChartRange
+   * @return CoinMarketChartRange|JSON
    * @throws ApiException
    * @throws HelperException
    */
-  public function coinMarketChartRange(int $from, ?int $to = null, string $vs_currency = 'usd'): CoinMarketChartRange {
+  public function coinMarketChartRange(int $from, ?int $to = null, string $vs_currency = 'usd'): CoinMarketChartRange|JSON {
     $query = [
       'vs_currency' => $vs_currency,
       'from'        => $from,
