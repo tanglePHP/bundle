@@ -81,7 +81,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function routes(): Routes {
+  public function routes(): Routes|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->routes() : $this->v1->routes();
   }
 
@@ -90,7 +90,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function info(): Info|ResponseInfo {
+  public function info(): Info|ResponseInfo|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->info() : $this->v1->info();
   }
 
@@ -108,7 +108,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function tips(): Tips|ResponseTips {
+  public function tips(): Tips|ResponseTips|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->tips() : $this->v1->tips();
   }
 
@@ -121,7 +121,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function receipts(?int $migratedAt = null): Receipts|ResponseReceipts|Error {
+  public function receipts(?int $migratedAt = null): Receipts|ResponseReceipts|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->receipts() : $this->v1->receipts();
   }
 
@@ -133,7 +133,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function peers(): Peers|ResponsePeers|Error {
+  public function peers(): Peers|ResponsePeers|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->peers() : $this->v1->peers();
   }
 
@@ -146,7 +146,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestone(string $milestoneID): MilestonePayload|ResponseMilestone|Error {
+  public function milestone(string $milestoneID): MilestonePayload|ResponseMilestone|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->milestone($milestoneID) : $this->v1->milestone($milestoneID);
   }
 
@@ -159,7 +159,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestoneByIndex(int|string $milestoneIndex): MilestonePayload|ResponseMilestone|Error {
+  public function milestoneByIndex(int|string $milestoneIndex): MilestonePayload|ResponseMilestone|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->milestoneByIndex($milestoneIndex) : $this->v1->milestoneByIndex($milestoneIndex);
   }
 
@@ -172,7 +172,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestoneUtxoChanges(string $milestoneId): UTXOChanges|ResponseMilestoneUtxoChanges|Error {
+  public function milestoneUtxoChanges(string $milestoneId): UTXOChanges|ResponseMilestoneUtxoChanges|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->milestoneUtxoChanges($milestoneId) : $this->v1->milestoneUtxoChanges($milestoneId);
   }
 
@@ -185,7 +185,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestoneUtxoChangesByIndex(int|string $milestoneIndex): UTXOChanges|ResponseMilestoneUtxoChanges|Error {
+  public function milestoneUtxoChangesByIndex(int|string $milestoneIndex): UTXOChanges|ResponseMilestoneUtxoChanges|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->milestoneUtxoChangesByIndex($milestoneIndex) : $this->v1->milestoneUtxoChangesByIndex($milestoneIndex);
   }
 
@@ -198,7 +198,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function output(string $outputId): Output|JSON|ResponseOutput|Error {
+  public function output(string $outputId): Output|ResponseOutput|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->output($outputId) : $this->v1->output($outputId);
   }
 
@@ -220,7 +220,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function transaction(string $transactionId): Block|ResponseMessage|Error {
+  public function transaction(string $transactionId): Block|ResponseMessage|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->transaction($transactionId) : $this->v1->message($transactionId);
   }
 
@@ -233,7 +233,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function block(string $blockID): Block|ResponseMessage|Error {
+  public function block(string $blockID): Block|ResponseMessage|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->block($blockID) : $this->v1->message($blockID);
   }
 
@@ -246,7 +246,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function blockMetadata(string $blockID): BlockMetadata|ResponseMessageMetadata|Error {
+  public function blockMetadata(string $blockID): BlockMetadata|ResponseMessageMetadata|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->blockMetadata($blockID) : $this->v1->messageMetadata($blockID);
   }
 
@@ -257,7 +257,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function submit(TaggedData|Transaction|RequestSubmitMessage|PayloadIndexation $payload): SubmitBlock|ResponseSubmitMessage {
+  public function submit(TaggedData|Transaction|RequestSubmitMessage|PayloadIndexation $payload): SubmitBlock|ResponseSubmitMessage|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->submit($payload) : $this->v1->messageSubmit($payload);
   }
 
@@ -268,7 +268,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function submitBlock(\tanglePHP\SingleNodeClient\Api\v2\Request\SubmitBlock|RequestSubmitMessage|PayloadIndexation $block): SubmitBlock|ResponseSubmitMessage {
+  public function submitBlock(\tanglePHP\SingleNodeClient\Api\v2\Request\SubmitBlock|RequestSubmitMessage|PayloadIndexation $block): SubmitBlock|ResponseSubmitMessage|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->submitBlock($block) : $this->v1->messageSubmit($block);
   }
 }

@@ -45,7 +45,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function routes(): Routes {
+  public function routes(): Routes|JSON {
     return $this->API_CALLER->route('/api/routes')
                             ->callback(Routes::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -58,7 +58,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function info(): Info {
+  public function info(): Info|JSON {
     return $this->API_CALLER->route('info')
                             ->callback(Info::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -83,7 +83,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function tips(): Tips {
+  public function tips(): Tips|JSON {
     return $this->API_CALLER->route('tips')
                             ->callback(Tips::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -98,7 +98,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function receipts(?int $migratedAt = null): Receipts|Error {
+  public function receipts(?int $migratedAt = null): Receipts|Error|JSON {
     return $this->API_CALLER->route('receipts' . ($migratedAt ? '/' . $migratedAt : ''))
                             ->callback(Receipts::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -112,7 +112,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function peers(): Peers|Error {
+  public function peers(): Peers|Error|JSON {
     return $this->API_CALLER->route('peers')
                             ->callback(Peers::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -127,7 +127,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestone(string $milestoneID): MilestonePayload|Error {
+  public function milestone(string $milestoneID): MilestonePayload|Error|JSON {
     return $this->API_CALLER->route('milestones/' . $milestoneID)
                             ->callback(MilestonePayload::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -142,7 +142,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestoneByIndex(int|string $milestoneIndex): MilestonePayload|Error {
+  public function milestoneByIndex(int|string $milestoneIndex): MilestonePayload|Error|JSON {
     return $this->API_CALLER->route('milestones/by-index/' . $milestoneIndex)
                             ->callback(MilestonePayload::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -157,7 +157,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestoneUtxoChanges(string $milestoneId): UTXOChanges|Error {
+  public function milestoneUtxoChanges(string $milestoneId): UTXOChanges|Error|JSON {
     return $this->API_CALLER->route('milestones/' . $milestoneId . '/utxo-changes')
                             ->callback(UTXOChanges::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -172,7 +172,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function milestoneUtxoChangesByIndex(int|string $milestoneIndex): UTXOChanges|Error {
+  public function milestoneUtxoChangesByIndex(int|string $milestoneIndex): UTXOChanges|Error|JSON {
     return $this->API_CALLER->route('milestones/by-index/' . $milestoneIndex . '/utxo-changes')
                             ->callback(UTXOChanges::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
@@ -215,7 +215,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function block(string $blockID): Block|Error {
+  public function block(string $blockID): Block|Error|JSON {
     $blockID = Converter::HexString0x($blockID);
 
     return $this->API_CALLER->route('blocks/' . $blockID)
@@ -232,7 +232,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function blockMetadata(string $blockID): BlockMetadata|Error {
+  public function blockMetadata(string $blockID): BlockMetadata|Error|JSON {
     $blockID = Converter::HexString0x($blockID);
 
     return $this->API_CALLER->route('blocks/' . $blockID . '/metadata')
@@ -247,7 +247,7 @@ final class ConnectorV2 extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function transaction(string $transactionId): Block|Error {
+  public function transaction(string $transactionId): Block|Error|JSON {
     $blockID = Converter::HexString0x($transactionId);
 
     return $this->API_CALLER->route('transactions/' . $transactionId . '/included-block')
