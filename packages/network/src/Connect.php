@@ -1,6 +1,7 @@
 <?php namespace tanglePHP\Network;
 
 use Exception;
+use tanglePHP\Core\Helper\Wrapper;
 use tanglePHP\Network\Models\EndpointList;
 use tanglePHP\Network\Endpoint\ChronicleNode;
 use tanglePHP\Network\Endpoint\FaucetServer;
@@ -104,6 +105,19 @@ final class Connect {
     }
     if(is_string($url)) {
       $url = (new user($this, $url))->getURL();
+    }
+    // define dirs
+    /**
+     *
+     */
+    define("TANGLEPHP_DIR_TMP_PROJECT", Wrapper::path_normalize((PHP_SAPI == 'cli' ? dirname(realpath($_SERVER['argv'][0])) : getcwd()) . "/../tmp/"));
+    /**
+     *
+     */
+    define("TANGLEPHP_DIR_TMP", Wrapper::path_normalize(__DIR__ . "/../tmp/"));
+    // create defined dirs if not exists
+    if(!file_exists(TANGLEPHP_DIR_TMP)) {
+      mkdir(TANGLEPHP_DIR_TMP, 0777, true);
     }
     // create ENDPOINT
     $this->ENDPOINT = new EndpointList();
@@ -209,5 +223,31 @@ final class Connect {
    */
   public function getExplorerUrlMessage(string $blockId): string {
     return $this->getExplorerUrl() . 'message/' . $blockId;
+  }
+
+  /**
+   * @param string $fileName
+   * @param string $content
+   * @param int    $flags
+   *
+   * @return void
+   */
+  public function writeTmpFile(string $fileName, string $content, int $flags = 0): void {
+    $file = TANGLEPHP_DIR_TMP . $fileName;
+    file_put_contents($file, $content, $flags);
+  }
+
+  /**
+   * @param string $fileName
+   *
+   * @return string
+   */
+  public function readTmpFile(string $fileName): string {
+    $file = TANGLEPHP_DIR_TMP . $fileName;
+    if(!file_exists($file)) {
+      return '';
+    }
+
+    return file_get_contents($file);
   }
 }
