@@ -5,6 +5,7 @@ use tanglePHP\Core\Exception\Helper as HelperException;
 use tanglePHP\Core\Helper\Converter;
 use tanglePHP\Core\Helper\JSON;
 use tanglePHP\Core\Models\AbstractConnector;
+use tanglePHP\IndexerPlugin\Api\v1\Response\Basic;
 use tanglePHP\Network\Models\AbstractEndpoint;
 use tanglePHP\SingleNodeClient\Api\Routes;
 use tanglePHP\SingleNodeClient\Api\v1\PayloadIndexation;
@@ -15,6 +16,7 @@ use tanglePHP\SingleNodeClient\Api\v1\ResponseMessageMetadata;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseMilestone;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseMilestoneUtxoChanges;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseOutput;
+use tanglePHP\SingleNodeClient\Api\v1\ResponseOutputAddress;
 use tanglePHP\SingleNodeClient\Api\v1\ResponsePeers;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseReceipts;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseSubmitMessage;
@@ -222,6 +224,18 @@ final class Connector extends AbstractConnector {
    */
   public function transaction(string $transactionId): Block|ResponseMessage|Error|JSON {
     return $this->getProtocolVersion() == '2' ? $this->v2->transaction($transactionId) : $this->v1->message($transactionId);
+  }
+
+  /**
+   * @param string $addressBech32
+   *
+   * @return ResponseOutputAddress|Basic|Error|JSON
+   * @throws ApiException
+   * @throws HelperException
+   * @throws \tanglePHP\Core\Exception\Converter
+   */
+  public function addressOutput(string $addressBech32): ResponseOutputAddress|Basic|Error|JSON {
+     return $this->getProtocolVersion() == '2' ? $this->v2->Plugin->Indexer->outputsBasicAddress($addressBech32) : $this->v1->addressesOutput($addressBech32);
   }
 
   /**
