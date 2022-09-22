@@ -107,14 +107,12 @@ final class Connect {
       $url = (new user($this, $url))->getURL();
     }
     // define dirs
-    /**
-     *
-     */
-    define("TANGLEPHP_DIR_TMP_PROJECT", Wrapper::path_normalize((PHP_SAPI == 'cli' ? dirname(realpath($_SERVER['argv'][0])) : getcwd()) . "/../tmp/"));
-    /**
-     *
-     */
-    define("TANGLEPHP_DIR_TMP", Wrapper::path_normalize(__DIR__ . "/../tmp/"));
+    if(!defined('TANGLEPHP_DIR_TMP_PROJECT')) {
+      define("TANGLEPHP_DIR_TMP_PROJECT", Wrapper::path_normalize((PHP_SAPI == 'cli' ? dirname(realpath($_SERVER['argv'][0])) : getcwd()) . "/../tmp/"));
+    }
+    if(!defined('TANGLEPHP_DIR_TMP')) {
+      define("TANGLEPHP_DIR_TMP", Wrapper::path_normalize(__DIR__ . "/../tmp/"));
+    }
     // create defined dirs if not exists
     if(!file_exists(TANGLEPHP_DIR_TMP)) {
       mkdir(TANGLEPHP_DIR_TMP, 0777, true);
