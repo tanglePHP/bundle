@@ -65,7 +65,7 @@ final class Connector extends AbstractConnector {
                             ->callback(Price::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
     //
-    isset($ret->status) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
+    isset($ret->status) || isset($ret->error) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
 
     return $ret;
   }
@@ -80,7 +80,7 @@ final class Connector extends AbstractConnector {
                             ->callback(Coin::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
     //
-    isset($ret->status) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
+    isset($ret->status) || isset($ret->error) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
 
     return $ret;
   }
@@ -101,7 +101,7 @@ final class Connector extends AbstractConnector {
                               ->callback(CoinHistory::class)
                               ->fetchJSON($this->ENDPOINT->TIMEOUT);
     //
-    isset($ret->status) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
+    isset($ret->status) || isset($ret->error) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
 
     return $ret;
   }
@@ -124,7 +124,7 @@ final class Connector extends AbstractConnector {
                               ->callback(CoinMarketChart::class)
                               ->fetchJSON($this->ENDPOINT->TIMEOUT);
     //
-    isset($ret->status) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
+    isset($ret->status) || isset($ret->error) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
 
     return $ret;
   }
@@ -149,7 +149,7 @@ final class Connector extends AbstractConnector {
                               ->callback(CoinMarketChartRange::class)
                               ->fetchJSON($this->ENDPOINT->TIMEOUT);
     //
-    isset($ret->status) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
+    isset($ret->status) || isset($ret->error) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
 
     return $ret;
   }
