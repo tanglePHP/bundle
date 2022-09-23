@@ -32,5 +32,10 @@
     "ext-ctype": "*",
     "ext-openssl": "*",
     "tanglephp/network": "*"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tanglePHP\\bundle\\tests\\": "tests/"
+    }
   }
 }
