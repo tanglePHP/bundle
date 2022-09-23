@@ -51,9 +51,14 @@ final class FullTest extends TestCase {
    */
   public function testGetFunds(): void {
     $ret = $this->network->faucetServer->getFunds('dc4eac92bb9962e691be743f8792530a4392094462f61d6ef329ed6a6be29992');
-    $this->assertArrayHasKey('address', $ret->__toArray());
-    $this->assertArrayHasKey('waitingRequests', $ret->__toArray());
-    $this->assertEquals('rms1qrwyatyjhwvk9e53he6rlpuj2v9y8ysfg330v8tw7v5766ntu2vey0dkvsx', $ret->address);
+    $retArray = $ret->__toArray();
+    if(!isset($retArray['error'])) {
+      $this->assertArrayHasKey('address', $retArray);
+      $this->assertArrayHasKey('waitingRequests', $retArray);
+      $this->assertEquals('rms1qrwyatyjhwvk9e53he6rlpuj2v9y8ysfg330v8tw7v5766ntu2vey0dkvsx', $ret->address);
+    } else {
+      $this->assertEquals('400', $retArray['error']['code']);
+    }
   }
 
 }
