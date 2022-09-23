@@ -27,13 +27,18 @@ final class Info extends AbstractApiResponse {
   /**
    * @var string
    */
-  public string $bech32HRP;
+  public string $bech32Hrp;
 
   /**
    * @return void
    * @throws HelperException
    */
   protected function parse(): void {
-    $this->defaultParse();
+    foreach($this->_input->__toArray() as $_k => $_v) {
+      if($_k == 'bech32HRP') {
+        $_k = 'bech32Hrp';
+      }
+      $this->{$_k} = $_v;
+    }
   }
 }
