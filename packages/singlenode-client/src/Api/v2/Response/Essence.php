@@ -78,10 +78,10 @@ final class Essence extends AbstractApiResponse {
         foreach($_v as $_v2) {
           switch($_v2['type']) {
             case 0;
-              $this->inputs[] = new UTXO($_v);
+              $this->inputs[] = new UTXO($_v2);
               break;
             case 1;
-              $this->inputs[] = new Treasury($_v);
+              $this->inputs[] = new Treasury($_v2);
               break;
           }
         }
