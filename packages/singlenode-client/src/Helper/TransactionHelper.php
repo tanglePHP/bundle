@@ -819,4 +819,29 @@ final class TransactionHelper {
 
     return $client;
   }
+
+  /**
+   * @param array|ResponseArray           $unlocks
+   * @param Network|Connector|string|null $client
+   *
+   * @return string|null
+   * @throws ApiException
+   * @throws ConverterException
+   * @throws HelperException
+   * @throws SodiumException
+   */
+  static public function getSenderFromUnlocks(array|ResponseArray $unlocks, Connect|Connector|string $client = null): string|null {
+    $client = self::checkClient($client);
+    //
+    foreach($unlocks as $unlock) {
+      if($unlock->type == 0) {
+        $address       = new Ed25519Address(Converter::remove0x($unlock->signature->publicKey));
+        $addressBech32 = $address->toAddressBetch32(TransactionHelper::getClientProtocol_bech32($client));
+
+        return $addressBech32;
+      }
+    }
+
+    return null;
+  }
 }
