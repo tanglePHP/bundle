@@ -228,14 +228,15 @@ final class Connector extends AbstractConnector {
 
   /**
    * @param string $addressBech32
+   * @param array  $query
    *
    * @return ResponseOutputAddress|Basic|Error|JSON
    * @throws ApiException
    * @throws HelperException
    * @throws \tanglePHP\Core\Exception\Converter
    */
-  public function addressOutput(string $addressBech32): ResponseOutputAddress|Basic|Error|JSON {
-     return $this->getProtocolVersion() == '2' ? $this->v2->Plugin->Indexer->outputsBasicAddress($addressBech32) : $this->v1->addressesOutput($addressBech32);
+  public function addressOutput(string $addressBech32, array $query = []): ResponseOutputAddress|Basic|Error|JSON {
+     return $this->getProtocolVersion() == '2' ? $this->v2->Plugin->Indexer->outputsBasicAddress($addressBech32, $query) : $this->v1->addressesOutput($addressBech32);
   }
 
   /**
