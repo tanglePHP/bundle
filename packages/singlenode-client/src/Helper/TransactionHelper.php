@@ -835,8 +835,18 @@ final class TransactionHelper {
     //
     foreach($unlocks as $unlock) {
       if($unlock->type == 0) {
-        $address       = new Ed25519Address(Converter::remove0x($unlock->signature->publicKey));
-        $addressBech32 = $address->toAddressBetch32(TransactionHelper::getClientProtocol_bech32($client));
+        if(isset($unlock->signature)) {
+          $address       = Converter::remove0x($unlock->signature->publicKey);
+          $address       = new Ed25519Address($address);
+          $addressBech32 = $address->toAddressBetch32(TransactionHelper::getClientProtocol_bech32($client));
+        }
+        elseif(isset($unlock->address)) {
+          $address       = Converter::remove0x($unlock->address->pubKeyHash);
+          $addressBech32 = Converter::ed25519ToBech32($address, TransactionHelper::getClientProtocol_bech32($client));
+        }
+        else {
+          continue;
+        }
 
         return $addressBech32;
       }
