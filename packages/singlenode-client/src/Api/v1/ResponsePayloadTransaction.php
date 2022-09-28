@@ -2,6 +2,7 @@
 
 use tanglePHP\Core\Models\AbstractApiResponse;
 use tanglePHP\Core\Exception\Helper as HelperException;
+use tanglePHP\Core\Models\ResponseArray;
 
 /**
  * Class ResponsePayloadTransaction
@@ -23,7 +24,7 @@ final class ResponsePayloadTransaction extends AbstractApiResponse {
   /**
    * @var array
    */
-  public array $unlockBlocks;
+  public mixed $unlockBlocks;
 
   /**
    * @return void
@@ -31,12 +32,19 @@ final class ResponsePayloadTransaction extends AbstractApiResponse {
    */
   protected function parse(): void {
     foreach($this->_input->__toArray() as $_k => $_v) {
-      $this->{$_k} = match ($_k) {
-        'essence' => match ($_v['type']) {
-          0 => new ResponseEssenceTransaction($_v),
-        },
-        default => $_v,
-      };
+      switch($_k) {
+        case 'essence':
+          $this->{$_k} = match ($_v['type']) {
+            0 => new ResponseEssenceTransaction($_v),
+          };
+          break;
+        case 'unlockBlocks':
+          $this->unlockBlocks = new ResponseArray($_v);
+          break;
+        default:
+          $this->{$_k} = $_v;
+          break;
+      }
     }
   }
 }
