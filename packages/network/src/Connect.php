@@ -12,6 +12,7 @@ use tanglePHP\Core\Exception\Helper as HelperException;
 use tanglePHP\Network\SingleNodesList\chrysalis_devnet;
 use tanglePHP\Network\SingleNodesList\chrysalis_mainnet;
 use tanglePHP\Network\SingleNodesList\pool_dltgreen;
+use tanglePHP\Network\SingleNodesList\shimmer_mainnet;
 use tanglePHP\Network\SingleNodesList\shimmer_testnet;
 use tanglePHP\Network\SingleNodesList\user;
 use tanglePHP\SingleNodeClient\Connector as SingleNodeConnector;
@@ -25,7 +26,7 @@ use tanglePHP\ChronicleClient\Connector as ChronicleClientConnector;
  * @package      tanglePHP\Network
  * @author       Stefan Braun <stefan.braun@tanglePHP.com>
  * @copyright    Copyright (c) 2022, StefanBraun
- * @version      2022.08.24-1049
+ * @version      2022.09.24-1057
  */
 final class Connect {
   /**
@@ -77,12 +78,10 @@ final class Connect {
    */
   public function __construct(string $url = null) {
     switch($url) {
-      case 'devnet':
       case 'iota:devnet':
       case 'chrysalis:devnet':
         $url = (new chrysalis_devnet($this))->getURL();
         break;
-      case 'mainnet':
       case 'iota:mainnet':
       case 'chrysalis:mainnet':
         $url = (new chrysalis_mainnet($this))->getURL();
@@ -98,9 +97,11 @@ final class Connect {
         break;
       case null:
       case '':
-      case 'testnet':
       case 'shimmer:testnet':
         $url = (new shimmer_testnet($this))->getURL();
+        break;
+      case 'shimmer:mainnet':
+        $url = (new shimmer_mainnet($this))->getURL();
         break;
     }
     if(is_string($url)) {
@@ -108,9 +109,15 @@ final class Connect {
     }
     // define dirs
     if(!defined('TANGLEPHP_DIR_TMP_PROJECT')) {
+      /**
+       *
+       */
       define("TANGLEPHP_DIR_TMP_PROJECT", Wrapper::path_normalize((PHP_SAPI == 'cli' ? dirname(realpath($_SERVER['argv'][0])) : getcwd()) . "/../tmp/"));
     }
     if(!defined('TANGLEPHP_DIR_TMP')) {
+      /**
+       *
+       */
       define("TANGLEPHP_DIR_TMP", Wrapper::path_normalize(__DIR__ . "/../tmp/"));
     }
     // create defined dirs if not exists
@@ -202,6 +209,10 @@ final class Connect {
    * @return string
    */
   public function getExplorerUrlBlock(string $blockId): string {
+    if($this->info['protocolVersion'] == '1') {
+      return $this->getExplorerUrlMessage($blockId);
+    }
+
     return $this->getExplorerUrl() . 'block/' . $blockId;
   }
 
@@ -220,6 +231,10 @@ final class Connect {
    * @return string
    */
   public function getExplorerUrlMessage(string $blockId): string {
+    if($this->info['protocolVersion'] == '2') {
+      return $this->getExplorerUrlBlock($blockId);
+    }
+
     return $this->getExplorerUrl() . 'message/' . $blockId;
   }
 
