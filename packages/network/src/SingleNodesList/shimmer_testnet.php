@@ -15,6 +15,6 @@ final class shimmer_testnet extends AbstractSingleNodesList {
    * @var array
    */
   protected array $urls = [
-    'https://tanglephp.dlt.builders/',
+    'https://testnet.shimmer.tanglephp.com/',
   ];
 }
