@@ -90,6 +90,21 @@ final class Converter {
   }
 
   /**
+   * @param $hex
+   *
+   * @return int
+   */
+  static public function hex2BigInt($hex): int {
+    $dec = 0;
+    $len = strlen($hex);
+    for($i = 1; $i <= $len; $i++) {
+      $dec = bcadd($dec, bcmul(strval(hexdec($hex[$i - 1])), bcpow('16', strval($len - $i))));
+    }
+
+    return $dec;
+  }
+
+  /**
    * @param string $val
    *
    * @return string
