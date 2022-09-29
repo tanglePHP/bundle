@@ -84,7 +84,7 @@ final class TransactionHelper {
   const CONFIRMED_UINIX_TIMESTAMP_LENGTH = 4;
 
   /**
-   * @param int             $networkId
+   * @param string          $networkId
    * @param array           $inputWithData
    * @param array           $outputWithData
    * @param Ed25519Seed     $addressSeed
@@ -94,7 +94,7 @@ final class TransactionHelper {
    * @throws ConverterException
    * @throws SodiumException
    */
-  static public function createTransactionPayload(int $networkId, array $inputWithData, array $outputWithData, Ed25519Seed $addressSeed, TaggedData $taggedData = null): Transaction {
+  static public function createTransactionPayload(string $networkId, array $inputWithData, array $outputWithData, Ed25519Seed $addressSeed, TaggedData $taggedData = null): Transaction {
     //sort($inputWithData);
     //sort($outputWithData);
     //
