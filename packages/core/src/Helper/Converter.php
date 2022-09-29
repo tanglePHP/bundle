@@ -92,9 +92,9 @@ final class Converter {
   /**
    * @param $hex
    *
-   * @return int
+   * @return string
    */
-  static public function hex2BigInt($hex): int {
+  static public function hex2BigInt($hex): string {
     $dec = 0;
     $len = strlen($hex);
     for($i = 1; $i <= $len; $i++) {
@@ -102,6 +102,22 @@ final class Converter {
     }
 
     return $dec;
+  }
+
+  /**
+   * @param $bigInt
+   *
+   * @return string
+   */
+  static public function BigInt2Hex($bigInt): string {
+    $last   = bcmod($bigInt, 16);
+    $remain = bcdiv(bcsub($bigInt, $last), 16);
+    if($remain == 0) {
+      return dechex($last);
+    }
+    else {
+      return self::BigInt2Hex($remain) . dechex($last);
+    }
   }
 
   /**
