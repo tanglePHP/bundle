@@ -99,7 +99,7 @@ abstract class AbstractSingleNodesList extends AbstractMap {
    * @throws ConverterException
    * @throws SodiumException
    */
-  private function parseNetworkId(string $networkName): int {
+  private function parseNetworkId(string $networkName): string {
     return Converter::hex2BigInt(Converter::string2Hex(substr(Hash::blake2b_sum256($networkName), 0, 8), true));
   }
 
