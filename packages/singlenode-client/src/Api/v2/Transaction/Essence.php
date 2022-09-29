@@ -1,5 +1,6 @@
 <?php namespace tanglePHP\SingleNodeClient\Api\v2\Transaction;
 
+use tanglePHP\Core\Helper\Converter;
 use tanglePHP\SingleNodeClient\Api\v2\Payload\TaggedData;
 use tanglePHP\Core\Models\AbstractApi;
 use tanglePHP\Core\Models\InterfaceSerializer;
@@ -54,10 +55,10 @@ final class Essence extends AbstractApi implements InterfaceSerializer {
    * @throws ConverterException
    */
   public function serialize(): array {
-    /// type
+    // type
     $_ret = [self::serializeUInt8($this->type)];
-    /// networkId
-    $_ret[] = self::serializeUInt64($this->networkId);
+    // networkId
+    $_ret[] = self::serializeFixedHex(Converter::reverseHex(Converter::BigInt2Hex($this->networkId)));
     // inputs
     $_ret[] = self::serializeUInt16(count($this->inputs));
     foreach($this->inputs as $object) {
