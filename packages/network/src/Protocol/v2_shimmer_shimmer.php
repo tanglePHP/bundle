@@ -14,7 +14,7 @@ final class v2_shimmer_shimmer extends AbstractProtocol {
   /**
    * @var string|null
    */
-  public ?string $explorerURL = 'https://explorer.shimmer.network/mainnet';
+  public ?string $explorerURL = 'https://explorer.shimmer.network/shimmer';
   /**
    * @var string|null
    */
