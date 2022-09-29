@@ -26,18 +26,18 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 #### Interact with a Shimmer (Stardust) SingleNode
   - [x] get outputs, blocks
   - [x] plugin support (Indexer) 
-  - [x] submit blocks, payloads (TaggedData, ~~Transaction~~)
+  - [x] submit blocks, payloads (TaggedData, Transaction)
   - [x] check Transactions
-  - [ ] ~~transfer baseTokens (smr/rms)~~
+  - [x] transfer baseTokens (smr/rms)
   - [ ] ~~mint, burn, transfer NFTs~~ 
   - [ ] ~~mint, burn, transfer nativeTokens~~
 
 #### Interact with an IOTA (Chrysalis) SingleNode
   - [x] get outputs, messages
   - [x] submit messages with indexation 
-  - [x] submit messages ~~with transaction payloads (send Tokens)~~
+  - [x] submit messages with transaction payloads (send Tokens)
   - [x] check Transactions
-  - [ ] ~~transfer baseTokens (iota/atoi)~~
+  - [x] transfer baseTokens (iota/atoi)
 
 ---
 
