@@ -86,22 +86,24 @@ final class Connect {
       case 'chrysalis:mainnet':
         $url = (new chrysalis_mainnet($this))->getURL();
         break;
-      case 'dltgreen:mainnet':
-        $url = (new pool_dltgreen($this, 'mainnet'))->getURL();
-        break;
-      case 'dlt.green':
-      case 'dltgreen':
-      case 'dltgreen:testnet':
-      case 'dlt.green:testnet':
-        $url = (new pool_dltgreen($this, 'testnet'))->getURL();
-        break;
-      case null:
-      case '':
       case 'shimmer:testnet':
         $url = (new shimmer_testnet($this))->getURL();
         break;
       case 'shimmer:mainnet':
         $url = (new shimmer_mainnet($this))->getURL();
+        break;
+      case '':
+      case null:
+      default:
+        if(str_starts_with($url, 'dlt.green:')) {
+          $ex = explode(":", $url);
+          if(count($ex) == 2) {
+            $url = (new pool_dltgreen($this, $ex[1]))->getURL();
+          }
+        }
+        else {
+          $url = (new pool_dltgreen($this, 'shimmer'))->getURL();
+        }
         break;
     }
     if(is_string($url)) {

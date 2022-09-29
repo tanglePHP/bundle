@@ -8,8 +8,9 @@
   // create network connection to iota:devnet
   #$network = new \tanglePHP\Network\Connect('iota:devnet');
 
-  // create network connection to dlt.green node pool (shimmer:testnet)
-  #$network = new \tanglePHP\Network\Connect('dlt.green:testnet');
+  // create network connection to dlt.green node pool (only Mainnet!)
+  $network = new \tanglePHP\Network\Connect('dlt.green:shimmer');
+  #$network = new \tanglePHP\Network\Connect('dlt.green:iota');
 
   // create network connection to own node (IOTA)
   #$network = new \tanglePHP\Network\Connect('https://tanglephp.dlt.green');
@@ -20,12 +21,13 @@
   #$network = new \tanglePHP\Network\Connect('https://tanglephp.dlt.builders/api');
 
   // create network connection to shimmer:mainnet
-  $network = new \tanglePHP\Network\Connect('shimmer:mainnet');
+  #$network = new \tanglePHP\Network\Connect('shimmer:mainnet');
 
 
 
   # output connect info
   print_r($network->getInfo());
+  print_r($network->getENDPOINTUrls());
 
   /* Output example
    Array
