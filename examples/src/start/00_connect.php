@@ -17,7 +17,10 @@
   // create network connection to own node (Shimmer)
   #$network = new \tanglePHP\Network\Connect('https://tanglephp.dlt.builders');
   // or full path to api
-  $network = new \tanglePHP\Network\Connect('https://tanglephp.dlt.builders/api');
+  #$network = new \tanglePHP\Network\Connect('https://tanglephp.dlt.builders/api');
+
+  // create network connection to shimmer:mainnet
+  $network = new \tanglePHP\Network\Connect('shimmer:mainnet');
 
 
 
