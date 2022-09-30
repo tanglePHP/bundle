@@ -30,6 +30,9 @@ final class Connector extends AbstractConnector {
    */
   public function onConstruct(): void {
     $this->coinId = strtolower($this->ENDPOINT->network->info['baseToken']);
+    if($this->coinId == "smr") {
+      $this->coinId = "shimmer";
+    }
   }
 
   /**
