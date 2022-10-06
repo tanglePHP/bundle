@@ -18,11 +18,14 @@ use tanglePHP\SingleNodeClient\Api\v1\ResponseMilestone;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseMilestoneUtxoChanges;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseOutput;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseOutputAddress;
+use tanglePHP\SingleNodeClient\Api\v1\ResponseParticipationEvent;
+use tanglePHP\SingleNodeClient\Api\v1\ResponseParticipationEvents;
 use tanglePHP\SingleNodeClient\Api\v1\ResponsePeers;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseReceipts;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseSubmitMessage;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseTips;
 use tanglePHP\SingleNodeClient\Api\v1\ResponseTreasury;
+use tanglePHP\SingleNodeClient\Api\v1\ResponseParticipationAddress;
 use tanglePHP\SingleNodeClient\Api\v2\Response\Error;
 
 /**
@@ -218,6 +221,56 @@ final class ConnectorV1 extends AbstractConnector {
                               'type'          => $type,
                             ])
                             ->callback(ResponseOutputAddress::class)
+                            ->fetchJSON($this->ENDPOINT->TIMEOUT);
+  }
+
+  /**
+   * @param string $addressBech32
+   *
+   * @return ResponseParticipationAddress|Error|JSON
+   * @throws ApiException
+   * @throws HelperException
+   */
+  public function addressParticipation(string $addressBech32): ResponseParticipationAddress|Error|JSON {
+    return $this->API_CALLER->route('/api/plugins/participation/addresses/' . $addressBech32)
+                            ->callback(ResponseParticipationAddress::class)
+                            ->fetchJSON($this->ENDPOINT->TIMEOUT);
+  }
+
+  /**
+   * @param string $eventId
+   *
+   * @return ResponseParticipationEvent|Error|JSON
+   * @throws ApiException
+   * @throws HelperException
+   */
+  public function eventParticipation(string $eventId): ResponseParticipationEvent|Error|JSON {
+    return $this->API_CALLER->route('/api/plugins/participation/events/' . $eventId)
+                            ->callback(ResponseParticipationEvent::class)
+                            ->fetchJSON($this->ENDPOINT->TIMEOUT);
+  }
+
+  /**
+   * @param string $eventId
+   *
+   * @return ResponseParticipationEvent|Error|JSON
+   * @throws ApiException
+   * @throws HelperException
+   */
+  public function eventStatusParticipation(string $eventId): ResponseParticipationEvent|Error|JSON {
+    return $this->API_CALLER->route('/api/plugins/participation/events/' . $eventId . "/status")
+                            ->callback(ResponseParticipationEvent::class)
+                            ->fetchJSON($this->ENDPOINT->TIMEOUT);
+  }
+
+  /**
+   * @return ResponseParticipationEvents|Error|JSON
+   * @throws ApiException
+   * @throws HelperException
+   */
+  public function eventsParticipation(): ResponseParticipationEvents|Error|JSON {
+    return $this->API_CALLER->route('/api/plugins/participation/events')
+                            ->callback(ResponseParticipationEvents::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
   }
 
