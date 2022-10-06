@@ -21,6 +21,7 @@
     $autoload->addNamespace('tanglePHP\\FaucetClient\\', __DIR__ . '/packages/faucet-client/src');
     $autoload->addNamespace('tanglePHP\\ChronicleClient\\', __DIR__ . '/packages/chronicle-client/src');
     $autoload->addNamespace('tanglePHP\\MarketClient\\', __DIR__ . '/packages/market-client/src');
+    $autoload->addNamespace('tanglePHP\\Wallet\\', __DIR__ . '/packages/wallet/src');
     $autoload->register();
   }
   /**
