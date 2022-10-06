@@ -15,7 +15,7 @@
   echo "###################################################################################" . PHP_EOL;
 
   // create ed25519Seed
-  $ed25519Seed = new \tanglePHP\Core\Type\Ed25519Seed($mnemonic);
+  $ed25519Seed = tanglePHP\Core\Helper\Simplifier::createEd25519Seed($mnemonic);
   echo "Ed25519Seed: " . $ed25519Seed . PHP_EOL;
   echo "###################################################################################" . PHP_EOL;
 
