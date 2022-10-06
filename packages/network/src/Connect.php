@@ -101,13 +101,13 @@ final class Connect {
             $url = (new pool_dltgreen($this, $ex[1]))->getURL();
           }
         }
+        elseif(is_string($url)) {
+          $url = (new user($this, $url))->getURL();
+        }
         else {
           $url = (new pool_dltgreen($this, 'shimmer'))->getURL();
         }
         break;
-    }
-    if(is_string($url)) {
-      $url = (new user($this, $url))->getURL();
     }
     // define dirs
     if(!defined('TANGLEPHP_DIR_TMP_PROJECT')) {
