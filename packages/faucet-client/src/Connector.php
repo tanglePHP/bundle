@@ -6,7 +6,6 @@ use tanglePHP\FaucetClient\Api\v1\Response\Enqueue;
 use tanglePHP\FaucetClient\Api\v1\Response\Info;
 use tanglePHP\SingleNodeClient\Action\sendTransaction;
 use tanglePHP\SingleNodeClient\Api\v2\Response\Error;
-use tanglePHP\SingleNodeClient\Api\v2\Response\SubmitBlock;
 use tanglePHP\Core\Crypto\Mnemonic;
 use tanglePHP\Core\Exception\Api as ApiException;
 use tanglePHP\Core\Exception\Converter as ConverterException;
@@ -16,6 +15,7 @@ use tanglePHP\Core\Exception\Type as TypeException;
 use tanglePHP\Core\Helper\Converter;
 use tanglePHP\Core\Type\Ed25519Seed;
 use SodiumException;
+use tanglePHP\SingleNodeClient\Models\ReturnSubmitBlock;
 
 /**
  * Class Connector
@@ -23,7 +23,7 @@ use SodiumException;
  * @package      tanglePHP\FaucetClient
  * @author       Stefan Braun <stefan.braun@tanglePHP.com>
  * @copyright    Copyright (c) 2022, StefanBraun
- * @version      2022.09.05-1150
+ * @version      2022.10.06-0933
  */
 final class Connector extends AbstractConnector {
   /**
@@ -61,7 +61,7 @@ final class Connector extends AbstractConnector {
    * @param int                               $accountIndex
    * @param int                               $addressIndex
    *
-   * @return SubmitBlock|Error
+   * @return ReturnSubmitBlock|Error
    * @throws ApiException
    * @throws ConverterException
    * @throws CryptoException
@@ -69,7 +69,7 @@ final class Connector extends AbstractConnector {
    * @throws SodiumException
    * @throws TypeException
    */
-  public function sendFundsBack(int|string|AbstractAmount $amount, Ed25519Seed|Mnemonic|string|array $seedInput, int $accountIndex = 0, int $addressIndex = 0): SubmitBlock|Error {
+  public function sendFundsBack(int|string|AbstractAmount $amount, Ed25519Seed|Mnemonic|string|array $seedInput, int $accountIndex = 0, int $addressIndex = 0): ReturnSubmitBlock|Error {
     return (new sendTransaction($this->ENDPOINT->network->singleNode))->seedInput($seedInput)
                                                                       ->accountIndex($accountIndex)
                                                                       ->addressIndex($addressIndex)
