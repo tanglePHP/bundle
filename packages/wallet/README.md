@@ -42,10 +42,12 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 
 ```php
 <?php
-  // include iota lib
+  // include tanglePHP autoload from tanglePHP/bundle
   require_once("autoload.php");
-  // create client
-  $wallet = new tanglePHP\Wallet\Run($seedInput);
+  // create network connection
+  $network = new \tanglePHP\Network\Connect('shimmer:testnet');
+  // Open wallet
+  $wallet    = new \tanglePHP\Wallet\Run($seedInput, $network->singleNode);
 ```
 
 ---
