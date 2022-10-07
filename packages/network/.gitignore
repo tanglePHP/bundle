@@ -1,6 +1,7 @@
 /.idea/
 /dist/
 /_template/
+/tmp/
 
 # Compiled source #
 ###################
