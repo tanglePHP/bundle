@@ -24,7 +24,7 @@ final class FullTest extends TestCase {
    * @return void
    */
   public function setUp(): void {
-    $this->network = new Connect('mainnet');
+    $this->network = new Connect('iota:mainnet');
   }
 
   /**
