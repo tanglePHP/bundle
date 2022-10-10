@@ -32,7 +32,7 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 ## Help & Examples
 
 + [Documentation](https://github.com/tanglePHP/documentation/blob/main/README.md)
-+ [Examples](https://github.com/tanglePHP/documentation/blob/main/Help/001_installation_composer.md)
++ [Examples](https://github.com/tanglePHP/examples/tree/main/src)
 
 
 ---
