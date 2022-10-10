@@ -12,7 +12,7 @@
 
 ---
 
-## Basic - Connection
+## Basic - Check Connection
 
 A network connection can be checked in tanglePHP. In some cases it is necessary to query whether this connection is connected to a FaucetServer or a ChronicleNode.
 
@@ -45,13 +45,23 @@ $ret = $network->hasFaucetServer();
 $ret = $network->hasChronicleNode();
 ```
 
+---
 
+### get protocol Version
+
+Returns the version number as a string ("1" or "2")
+
+```PHP
+// check has chronicle node
+$ret = $network->singleNode->getProtocolVersion()
+```
 
 ---
 
 ## Examples
 
 + [01_check](https://github.com/tanglePHP/bundle/blob/main/examples/src/start/01_check.php)
++ [02_getNodeInfo](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Simple/02_getNodeInfo.php)
 
 ---
 
