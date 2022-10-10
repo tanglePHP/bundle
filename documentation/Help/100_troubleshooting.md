@@ -10,41 +10,13 @@
 <a href="https://www.php.net/" style="text-decoration:none;"><img src="https://img.shields.io/badge/PHP->= 8.1.x-blue?style=flat-square&logo=php" alt=">PHP 8"></a>
 <a href="https://github.com/iota-community/iota.php/LICENSE" style="text-decoration:none;"><img src="https://img.shields.io/badge/license-Apache--2.0-green?style=flat-square" alt="Apache-2.0 license"></a>
 
----
+___
 
-# Overview
+# Troubleshooting
 
-### Installation
-
-+ [Github | Git](./Help/001_installation_github.md)
-+ [Composer](./Help/001_installation_composer.md)
++ [Joining the discussion](./100_discussion.md)
++ [Report Bugs](https://github.com/iota-community/iota.php/issues)
 
 ---
 
-### Help
-
-+ [Default](./Help/000_index.md)
-+ ~~Docusaurus~~
-
----
-
-### Examples
-
-+ [examples](../examples)
-    + [Start](../examples/src/start)
-    + [Crypto](../examples/src/crypto)
-    + [FaucetClient](../examples/src/faucet-client)
-    + [MarketClient](../examples/src/market-client)
-    + [SingleNodeClient](../examples/src/singlenode-client)
-        + [Action](../examples/src/singlenode-client/Action)
-        + [Address](../examples/src/singlenode-client/Address)
-        + [Simple](../examples/src/singlenode-client/Simple)
-    + [Wallet](../examples/src/wallet)
-
----
-
-## Other
-
-+ [Web | Links](./Help/100_web.md)
-+ [Support | Donation](./Help/100_donation.md)
-+ [Joining the discussion](./Help/100_discussion.md)
+<- Back to [Overview](000_index.md)

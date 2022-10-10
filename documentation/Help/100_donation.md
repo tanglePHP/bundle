@@ -12,39 +12,28 @@
 
 ---
 
-# Overview
+## Donation
 
-### Installation
+It took me a lot of time to develop the **tanglePHP** libs and need to pay for the server every month. If you want to support me or if my work helps you, kindly consider a small
+donation.
 
-+ [Github | Git](./Help/001_installation_github.md)
-+ [Composer](./Help/001_installation_composer.md)
+**Crypto Addresses:**
 
----
-
-### Help
-
-+ [Default](./Help/000_index.md)
-+ ~~Docusaurus~~
+|                             |         |
+|:----------------------------|  -------------:|
+| ![](../.meta/iota-logo.png) | ```iota1qpw8lvfgz6gt9u8qtcjmmez3vtqve6fdzqkdaah9wdz9llgvhs3psrtx5xd```
+| ![](../.meta/smr-logo.png)  | ```smr1qpv0a3hajyvet9r3f78uk387swt6lv70nz9g8905wth346uktdplxr0hpl4```
 
 ---
 
-### Examples
+**Get a cool NFT Animation:**
 
-+ [examples](../examples)
-    + [Start](../examples/src/start)
-    + [Crypto](../examples/src/crypto)
-    + [FaucetClient](../examples/src/faucet-client)
-    + [MarketClient](../examples/src/market-client)
-    + [SingleNodeClient](../examples/src/singlenode-client)
-        + [Action](../examples/src/singlenode-client/Action)
-        + [Address](../examples/src/singlenode-client/Address)
-        + [Simple](../examples/src/singlenode-client/Simple)
-    + [Wallet](../examples/src/wallet)
+[Collection](https://soonaverse.com/space/0xb62ff484cb5f512eb0a110055511b3f4a57467a9/collections) |
+[Bronze Support](https://soonaverse.com/collection/0x17597da5756e1dc65d733318195bbd951b8eeb89) |
+[Silver Support](https://soonaverse.com/collection/0x9d4434ae8ac2e53e532ef4e260b408caadb8c917) |
+[Gold Support](https://soonaverse.com/collection/0xfd98a0c6f15a6ce2660c1e3031fa81f1e54e632d) |
+[Diamond Support](https://soonaverse.com/collection/0xbb11d1c78249e93fd49992a55dde2605f87ddbdb)
 
----
+___
 
-## Other
-
-+ [Web | Links](./Help/100_web.md)
-+ [Support | Donation](./Help/100_donation.md)
-+ [Joining the discussion](./Help/100_discussion.md)
+<- Back to [Overview](000_index.md)

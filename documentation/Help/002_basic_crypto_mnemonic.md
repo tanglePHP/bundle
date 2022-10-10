@@ -12,39 +12,46 @@
 
 ---
 
-# Overview
+## Basic - Crypto (Mnemonic)
 
-### Installation
-
-+ [Github | Git](./Help/001_installation_github.md)
-+ [Composer](./Help/001_installation_composer.md)
+The mnemonic is a "memory aid", it consists of 24 words. This is named "seed phrase" (BIP39). BIP39 is the most common standard used for seed phrases.
 
 ---
 
-### Help
+## Use in tanglePHP
 
-+ [Default](./Help/000_index.md)
-+ ~~Docusaurus~~
+### Include autoload 
+
+```PHP
+// include tanglePHP autoload
+require_once("autoload.php");
+```
+
+### Create random mnemonic 
+
+```PHP
+$mnemonic = tanglePHP\Core\Helper\Simplifier::createMnemonic();
+```
+
+### Create mnemonic with 24 words
+
+```PHP
+$mnemonic = \tanglePHP\Core\Helper\Simplifier::reverseMnemonic('giant dynamic museum toddler six deny defense ostrich bomb access mercy blood explain muscle shoot shallow glad autumn author calm heavy hawk abuse rally');
+```
+
+### Check that the mnemonic is valid for 24 words
+
+```PHP
+$mnemonic = \tanglePHP\Core\Helper\Simplifier::checkMnemonic('dynamic giant museum toddler six deny defense ostrich bomb access mercy blood explain muscle shoot shallow glad autumn author calm heavy hawk abuse rally');
+// returns (bool)false
+```
 
 ---
 
-### Examples
+## Examples
 
-+ [examples](../examples)
-    + [Start](../examples/src/start)
-    + [Crypto](../examples/src/crypto)
-    + [FaucetClient](../examples/src/faucet-client)
-    + [MarketClient](../examples/src/market-client)
-    + [SingleNodeClient](../examples/src/singlenode-client)
-        + [Action](../examples/src/singlenode-client/Action)
-        + [Address](../examples/src/singlenode-client/Address)
-        + [Simple](../examples/src/singlenode-client/Simple)
-    + [Wallet](../examples/src/wallet)
++ [01_mnemonic](https://github.com/tanglePHP/bundle/blob/main/examples/src/crypto/01_mnemonic.php)
 
 ---
 
-## Other
-
-+ [Web | Links](./Help/100_web.md)
-+ [Support | Donation](./Help/100_donation.md)
-+ [Joining the discussion](./Help/100_discussion.md)
+<- Back to [Overview](000_index.md)

@@ -16,35 +16,40 @@
 
 ### Installation
 
-+ [Github | Git](./Help/001_installation_github.md)
-+ [Composer](./Help/001_installation_composer.md)
++ [Github | Git](./001_installation_github.md)
++ [Composer](./001_installation_composer.md)
 
----
+### Getting Started
++ Soon
 
-### Help
 
-+ [Default](./Help/000_index.md)
-+ ~~Docusaurus~~
+### Basics
 
----
 
-### Examples
++ Crypto
+    + [Mnemonic (create | check)](./002_basic_crypto_mnemonic.md)
+    + [Address (create | check)](./002_basic_crypto_address.md)
 
-+ [examples](../examples)
-    + [Start](../examples/src/start)
-    + [Crypto](../examples/src/crypto)
-    + [FaucetClient](../examples/src/faucet-client)
-    + [MarketClient](../examples/src/market-client)
-    + [SingleNodeClient](../examples/src/singlenode-client)
-        + [Action](../examples/src/singlenode-client/Action)
-        + [Address](../examples/src/singlenode-client/Address)
-        + [Simple](../examples/src/singlenode-client/Simple)
-    + [Wallet](../examples/src/wallet)
+
++ Action Examples
+    + Soon
+
+
++ Wallet Examples
+    + Soon
+  
+
++ Troubleshooting
+    + [Troubleshooting](./100_troubleshooting.md)
 
 ---
 
 ## Other
 
-+ [Web | Links](./Help/100_web.md)
-+ [Support | Donation](./Help/100_donation.md)
-+ [Joining the discussion](./Help/100_discussion.md)
++ [Web | Links](./100_web.md)
++ [Support | Donation](./100_donation.md)
++ [Joining the discussion](./100_discussion.md)
+
+---
+
+<- Back to [Readme](../README.md)

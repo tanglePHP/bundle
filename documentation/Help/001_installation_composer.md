@@ -12,39 +12,45 @@
 
 ---
 
-# Overview
+## Installation (composer)
 
-### Installation
+1 .Install Composer In Your Project
+> curl -sS https://getcomposer.org/installer | php
 
-+ [Github | Git](./Help/001_installation_github.md)
-+ [Composer](./Help/001_installation_composer.md)
+Or download composer.phar into your project root.
+
+2 . create composer.json
+
+```JSON 
+{
+  "require": {
+    "php": ">=8.1.0",
+    "ext-curl": "*",
+    "ext-sodium": "*",
+    "ext-mbstring": "*",
+    "ext-bcmath": "*",
+    "ext-ctype": "*",
+    "ext-openssl": "*",
+    "tanglephp/network": "*"
+  }
+}
+```
+
+Or download tanglephp/bundle.
+
+3 . Execute this in your project root.
+
+> php composer.phar install
+
+
+4 . Autoload Dependencies
+
+If your packages specify autoloading information, you can autoload all the dependencies by adding this to your code:
+
+> require 'vendor/autoload.php';
+
+
 
 ---
 
-### Help
-
-+ [Default](./Help/000_index.md)
-+ ~~Docusaurus~~
-
----
-
-### Examples
-
-+ [examples](../examples)
-    + [Start](../examples/src/start)
-    + [Crypto](../examples/src/crypto)
-    + [FaucetClient](../examples/src/faucet-client)
-    + [MarketClient](../examples/src/market-client)
-    + [SingleNodeClient](../examples/src/singlenode-client)
-        + [Action](../examples/src/singlenode-client/Action)
-        + [Address](../examples/src/singlenode-client/Address)
-        + [Simple](../examples/src/singlenode-client/Simple)
-    + [Wallet](../examples/src/wallet)
-
----
-
-## Other
-
-+ [Web | Links](./Help/100_web.md)
-+ [Support | Donation](./Help/100_donation.md)
-+ [Joining the discussion](./Help/100_discussion.md)
+<- Back to [Overview](000_index.md)
