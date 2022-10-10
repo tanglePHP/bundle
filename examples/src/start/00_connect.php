@@ -32,14 +32,14 @@
   print_r($network->getENDPOINTUrls());
 
   /* Output example
-   Array
+    Array
     (
         [network] => shimmer
-        [networkName] => testnet
-        [networkId] => 8342982141227064571
+        [networkName] => shimmer
+        [networkId] => 14364762045254553490
         [protocolVersion] => 2
         [singleNodeName] => HORNET
-        [singleNodeVersion] => 2.0.0-beta.8
+        [singleNodeVersion] => 2.0.0-rc.2
         [singleNodeHealthy] => 1
         [features] => Array
             (
@@ -48,6 +48,13 @@
 
         [baseToken] => SMR
         [coinType] => 4219
-        [bech32Hrp] => rms
+        [bech32Hrp] => smr
+    )
+    Array
+    (
+        [explorer] => https://explorer.shimmer.network/shimmer/
+        [singleNode] => https://lithuania.dlt.builders:443/api/core/v2/
+        [market] => https://api.coingecko.com/api/v3/
+        [chronicleNode] => https://chronicle.shimmer.network/api/
     )
    */
