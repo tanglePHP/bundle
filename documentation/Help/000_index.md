@@ -22,7 +22,7 @@
 ### Getting Started
 
 + Basic
-  + [Connection](./001_basic_connection.md)
+  + [Connection](./002_basic_connection.md)
   + [Check FaucetServer|ChronicleNode](./002_basic_check_connection.md)
 
 
