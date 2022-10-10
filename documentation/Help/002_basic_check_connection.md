@@ -12,45 +12,47 @@
 
 ---
 
-# Overview
+## Basic - Connection
 
-### Installation
-
-+ [Github | Git](./001_installation_github.md)
-+ [Composer](./001_installation_composer.md)
-
-### Getting Started
-
-+ Basic
-  + [Connection](./001_basic_connection.md)
-  + [Check FaucetServer|ChronicleNode](./002_basic_check_connection.md)
-
-
-
-+ Core (Crypto)
-    + [Mnemonic (create | check)](./002_basic_crypto_mnemonic.md)
-    + [Address (create | check)](./002_basic_crypto_address.md)
-
-
-+ SingleNodeClient
-  + soon  
-
-
-+ Wallet
-  + soon  
-
-
-+ Troubleshooting
-    + [Troubleshooting](./100_troubleshooting.md)
+A network connection can be checked in tanglePHP. In some cases it is necessary to query whether this connection is connected to a FaucetServer or a ChronicleNode.
 
 ---
 
-## Other
+## Use in tanglePHP
 
-+ [Web | Links](./100_web.md)
-+ [Support | Donation](./100_donation.md)
-+ [Joining the discussion](./100_discussion.md)
+### Include autoload 
+
+```PHP
+// include tanglePHP autoload
+require_once("autoload.php");
+// create network connection to shimmer testnet
+ $network = new \tanglePHP\Network\Connect('shimmer:testnet');
+```
+
+### check FaucetServer
+
+In both cases a "bool" is returned
+
+```PHP
+// check has faucet server
+$ret = $network->hasFaucetServer();
+```
+
+### check ChronicleNode
+
+```PHP
+// check has chronicle node
+$ret = $network->hasChronicleNode();
+```
+
+
 
 ---
 
-<- Back to [Readme](../README.md)
+## Examples
+
++ [01_check](https://github.com/tanglePHP/bundle/blob/main/examples/src/start/01_check.php)
+
+---
+
+<- Back to [Overview](000_index.md)
