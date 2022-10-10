@@ -30,16 +30,16 @@
 
 ### Examples
 
-+ [examples](../examples)
-    + [Start](../examples/src/start)
-    + [Crypto](../examples/src/crypto)
-    + [FaucetClient](../examples/src/faucet-client)
-    + [MarketClient](../examples/src/market-client)
-    + [SingleNodeClient](../examples/src/singlenode-client)
-        + [Action](../examples/src/singlenode-client/Action)
-        + [Address](../examples/src/singlenode-client/Address)
-        + [Simple](../examples/src/singlenode-client/Simple)
-    + [Wallet](../examples/src/wallet)
++ [examples](https://github.com/tanglePHP/examples/tree/main/src)
+    + [Start](https://github.com/tanglePHP/examples/tree/main/src/start)
+    + [Crypto](https://github.com/tanglePHP/examples/tree/main/src/crypto)
+    + [FaucetClient](https://github.com/tanglePHP/examples/tree/main/src/faucet-client)
+    + [MarketClient](https://github.com/tanglePHP/examples/tree/main/src/market-client)
+    + [SingleNodeClient](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client)
+        + [Action](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Action)
+        + [Address](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Address)
+        + [Simple](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Simple)
+    + [Wallet](https://github.com/tanglePHP/examples/tree/main/src/wallet)
 
 ---
 
