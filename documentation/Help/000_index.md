@@ -20,23 +20,17 @@
 + [Composer](./001_installation_composer.md)
 
 ### Getting Started
-+ Soon
+
++ Basic
+  + [Connection](./001_basic_connection.md)
 
 
-### Basics
 
 
-+ Crypto
++ Core (Crypto)
     + [Mnemonic (create | check)](./002_basic_crypto_mnemonic.md)
     + [Address (create | check)](./002_basic_crypto_address.md)
 
-
-+ Action Examples
-    + Soon
-
-
-+ Wallet Examples
-    + Soon
   
 
 + Troubleshooting
