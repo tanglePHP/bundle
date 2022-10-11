@@ -24,7 +24,7 @@
 + Basic
   + [Connection](./002_basic_connection.md)
   + [Check FaucetServer|ChronicleNode](./002_basic_check_connection.md)
-
+  + ... soon
 
 
 + Core (Crypto)
@@ -33,7 +33,8 @@
 
 
 + SingleNodeClient
-  + soon  
+  + [getBalance](./003_singlenodeclient_action_getBalance.md)
+  + ... soon
 
 
 + Wallet
