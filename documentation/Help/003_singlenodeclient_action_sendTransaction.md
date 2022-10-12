@@ -28,7 +28,7 @@ Sending tokens (IOTA/Shimmer) is done with the "sendTransaction" action. For thi
   require_once("autoload.php");
 
   use tanglePHP\Network\Connect;
-  use tanglePHP\SingleNodeClient\Action\sendMessage;
+  use tanglePHP\SingleNodeClient\Action\sendTransaction;
 
   // create network connection
   $network = new Connect('shimmer:testnet');

@@ -36,6 +36,7 @@
     + [getBalance](./003_singlenodeclient_action_getBalance.md) (get amount of Address)
     + [sendMessage](./003_singlenodeclient_action_sendMessage.md) (send taggedData)
     + [sendTransaction](./003_singlenodeclient_action_sendTransaction.md) (send IOTA/SMR)
+    + [searchTag](./003_singlenodeclient_action_searchTag.md) (search index/tag)
     + ... soon
 
 
