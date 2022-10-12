@@ -22,9 +22,9 @@
 ### Getting Started
 
 + Basic
-  + [Connection](./002_basic_connection.md)
-  + [Check FaucetServer|ChronicleNode](./002_basic_check_connection.md)
-  + ... soon
+    + [Connection](./002_basic_connection.md)
+    + [Check FaucetServer|ChronicleNode](./002_basic_check_connection.md)
+    + ... soon
 
 
 + Core (Crypto)
@@ -33,12 +33,14 @@
 
 
 + SingleNodeClient
-  + [getBalance](./003_singlenodeclient_action_getBalance.md)
-  + ... soon
+    + [getBalance](./003_singlenodeclient_action_getBalance.md) (get amount of Address)
+    + [sendMessage](./003_singlenodeclient_action_sendMessage.md) (send taggedData)
+    + [sendTransaction](./003_singlenodeclient_action_sendTransaction.md) (send IOTA/SMR)
+    + ... soon
 
 
 + Wallet
-  + soon  
+    + soon
 
 
 + Troubleshooting

@@ -12,7 +12,7 @@
 
 ---
 
-## SingleNodeClient - getBalance
+## SingleNodeClient - sendMessage
 
 There is a simple action "sendMessage" for sending messages, the "tag" (string) is specified as the first parameter, the 2nd parameter can be a string or an array.
 
@@ -29,7 +29,7 @@ Messages are not firmly anchored in the Tangle and can no longer be found over t
   require_once("autoload.php");
 
   use tanglePHP\Network\Connect;
-  use tanglePHP\SingleNodeClient\Action\getBalance;
+  use tanglePHP\SingleNodeClient\Action\sendMessage;
 
   // create network connection
   $network = new Connect('shimmer:testnet');
@@ -49,7 +49,7 @@ Alternatively, an array can also be transferred instead of the message string, a
   require_once("autoload.php");
 
   use tanglePHP\Network\Connect;
-  use tanglePHP\SingleNodeClient\Action\getBalance;
+  use tanglePHP\SingleNodeClient\Action\sendMessage;
 
   // create network connection
   $network = new Connect('shimmer:testnet');
@@ -65,21 +65,21 @@ Below is an example of the return:
 
 ```PHP
   # output
-    // print single information
-  echo PHP_EOL;
-  echo $ret->explorerUrl . PHP_EOL;
-  echo $ret->blockId . PHP_EOL;
-  echo $ret->check . PHP_EOL;
-  // print network informations
-  echo $ret->networkInfo;
+      // print single information
+      echo PHP_EOL;
+      echo $ret->explorerUrl . PHP_EOL;
+      echo $ret->blockId . PHP_EOL;
+      echo $ret->check . PHP_EOL;
+      // print network informations
+      echo $ret->networkInfo;
   
-  /* Output example
-    {"blockId":"0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa","check":null,"explorerUrl":"https:\/\/explorer.shimmer.network\/testnet\/block\/0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa","networkInfo":{"network":"shimmer","networkName":"testnet","networkId":"8342982141227064571","protocolVersion":2,"singleNodeName":"HORNET","singleNodeVersion":"2.0.0-beta.10","singleNodeHealthy":true,"features":["pow"],"baseToken":"SMR","coinType":4219,"bech32Hrp":"rms"}}
-    https://explorer.shimmer.network/testnet/block/0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa
-    0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa
-    
-    {"network":"shimmer","networkName":"testnet","networkId":"8342982141227064571","protocolVersion":2,"singleNodeName":"HORNET","singleNodeVersion":"2.0.0-beta.10","singleNodeHealthy":true,"features":["pow"],"baseToken":"SMR","coinType":4219,"bech32Hrp":"rms"}
-  */
+      /* Output example
+        {"blockId":"0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa","check":null,"explorerUrl":"https:\/\/explorer.shimmer.network\/testnet\/block\/0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa","networkInfo":{"network":"shimmer","networkName":"testnet","networkId":"8342982141227064571","protocolVersion":2,"singleNodeName":"HORNET","singleNodeVersion":"2.0.0-beta.10","singleNodeHealthy":true,"features":["pow"],"baseToken":"SMR","coinType":4219,"bech32Hrp":"rms"}}
+        https://explorer.shimmer.network/testnet/block/0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa
+        0x8b0e096180555375c2a29daf486cd5740830a3421be4bd8b7fa99219e9971dfa
+        
+        {"network":"shimmer","networkName":"testnet","networkId":"8342982141227064571","protocolVersion":2,"singleNodeName":"HORNET","singleNodeVersion":"2.0.0-beta.10","singleNodeHealthy":true,"features":["pow"],"baseToken":"SMR","coinType":4219,"bech32Hrp":"rms"}
+      */
 ```
 
 ---
