@@ -32,7 +32,7 @@ Sending tokens (IOTA/Shimmer) is done with the "sendTransaction" action. For thi
 
   // create network connection
   $network = new Connect('shimmer:testnet');
-  // send message
+  // send transaction
   echo $ret = (new sendTransaction($network->singleNode))->amount(1000000)
                                                          ->seedInput("MNEMONIC,Seed,...")
                                                          //->accountIndex(0)

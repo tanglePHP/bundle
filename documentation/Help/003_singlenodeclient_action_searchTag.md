@@ -40,7 +40,6 @@ Please note that in v2 only tags created with a StorageDeposit will be found. In
                                                 ->run();
 ```
 
-
 ---
 
 ### Output initial information
