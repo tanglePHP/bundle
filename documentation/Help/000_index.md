@@ -39,6 +39,7 @@
         + [sendTransaction](./003_singlenodeclient_action_sendTransaction.md) (send IOTA/SMR)
         + [searchTag](./003_singlenodeclient_action_searchTag.md) (search index/tag)
         + [checkTransaction](./003_singlenodeclient_action_checkTransaction.md)
+        + [getSpendable](./003_singlenodeclient_action_getSpendable.md)
         + ... soon
     + Simple
       + soon

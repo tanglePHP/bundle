@@ -46,7 +46,7 @@ A string is always returned, the following feedback can be given, provided that 
 
 ```PHP
   // protocoll V2
-  public array $conflictReason = [
+   [
     1   => "the referenced UTXO was already spent.",
     2   => "the referenced UTXO was already spent while confirming this milestone.",
     3   => "the referenced UTXO cannot be found.",
@@ -63,7 +63,7 @@ A string is always returned, the following feedback can be given, provided that 
   ];
   
   // protocoll V1
-  public array $conflictReasonV1 = [
+  [
     1 => "referenced UTXO was already spent.",
     2 => "referenced UTXO was already spent while confirming this milestone.",
     3 => "referenced UTXO cannot be found.",
