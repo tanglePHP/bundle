@@ -57,6 +57,12 @@ Below is an example of the return:
 
 + [00_getRoutes](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Simple/00_getRoutes.php)
 
+## PHPDoc
+
++ [method_routes](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Connector.html#method_routes)
++ [V1 - method_routes](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV1.html#method_routes)
++ [V2 - method_routes](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV2.html#method_routes)
+
 ---
 
 <- Back to [Overview](000_index.md)

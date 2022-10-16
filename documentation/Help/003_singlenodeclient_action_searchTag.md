@@ -395,6 +395,11 @@ Below is an example of the return:
 
 + [10_searchTag](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Action/10_searchTag.php)
 
+
+## PHPDoc
+
++ [search](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Action-search.html)
+
 ---
 
 <- Back to [Overview](000_index.md)

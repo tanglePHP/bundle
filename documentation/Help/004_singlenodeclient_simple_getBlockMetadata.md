@@ -58,6 +58,12 @@ Below is an example of the return:
 
 + [08_getBlockMetadata](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Simple/08_getBlockMetadata.php)
 
+## PHPDoc
+
++ [method_blockMetadata](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Connector.html#method_blockMetadata)
++ [V1 - method_messageMetadata](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV1.html#method_messageMetadata)
++ [V2 - method_blockMetadata](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV2.html#method_blockMetadata)
+
 ---
 
 <- Back to [Overview](000_index.md)

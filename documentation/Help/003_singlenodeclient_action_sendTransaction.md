@@ -85,6 +85,11 @@ Below is an example of the return:
 
 + [08_sendTransaction](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Action/08_sendTransaction.php)
 
+
+## PHPDoc
+
++ [sendTransaction](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Action-sendTransaction.html)
+
 ---
 
 <- Back to [Overview](000_index.md)

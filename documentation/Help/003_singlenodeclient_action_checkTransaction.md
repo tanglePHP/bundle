@@ -94,6 +94,11 @@ Below is an example of the return:
 
 + [04_checkTransaction](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Action/04_checkTransaction.php)
 
+
+## PHPDoc
+
++ [checkTransaction](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Action-checkTransaction.html)
+
 ---
 
 <- Back to [Overview](000_index.md)

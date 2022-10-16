@@ -110,6 +110,11 @@ The following command can be run to get the information about the "belance" and 
 + [01_getAddressBalanceTotal](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Action/01_getAddressBalanceTotal.php)
 + [01_getAddressBalanceIOTA](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Action/01_getAddressBalanceIOTA.php)
 
+
+## PHPDoc
+
++ [getBalance](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Action-getBalance.html)
+
 ---
 
 <- Back to [Overview](000_index.md)

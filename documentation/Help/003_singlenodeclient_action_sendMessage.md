@@ -88,6 +88,11 @@ Below is an example of the return:
 
 + [03_sendMessage](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Action/03_sendMessage.php)
 
+
+## PHPDoc
+
++ [sendMessage](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Action-sendMessage.html)
+
 ---
 
 <- Back to [Overview](000_index.md)

@@ -58,6 +58,14 @@ Below is an example of the return:
 
 + [08_getBlock](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Simple/08_getBlock.php)
 
+## PHPDoc
+
++ [method_block](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Connector.html#method_block)
++ [V1 - method_message](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV1.html#method_message)
++ [V2 - method_block](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV2.html#method_block)
+
+
+
 ---
 
 <- Back to [Overview](000_index.md)

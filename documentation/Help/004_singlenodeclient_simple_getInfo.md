@@ -108,6 +108,12 @@ Output single informations
 
 + [02_getNodeInfo](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Simple/02_getNodeInfo.php)
 
+## PHPDoc
+
++ [method_info](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Connector.html#method_info)
++ [V1 - method_info](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV1.html#method_info)
++ [V2 - method_info](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV2.html#method_info)
+
 ---
 
 <- Back to [Overview](000_index.md)

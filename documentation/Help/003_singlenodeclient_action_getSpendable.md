@@ -146,6 +146,11 @@ Below is an example of the return:
 
 + [02_getSpendable](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Action/02_getSpendable.php)
 
+
+## PHPDoc
+
++ [getSpendable](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Action-getSpendable.html)
+
 ---
 
 <- Back to [Overview](000_index.md)
