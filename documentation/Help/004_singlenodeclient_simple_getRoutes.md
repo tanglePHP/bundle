@@ -12,40 +12,51 @@
 
 ---
 
-# Overview
+## SingleNodeClient - getRoutes
 
-### Installation
-
-+ [Github | Git](./Help/001_installation_github.md)
-+ [Composer](./Help/001_installation_composer.md)
+It is possible to get the routes via the Node RestApi. This enables tanglePHP to load the necessary tanglePHP plugins and set up further communications. For projects that work with statistics and manage nodes, it can be interesting to output or check this information.
 
 ---
 
-### Help
+## Use in tanglePHP
 
-+ [Default](./Help/000_index.md)
-+ [PHPDoc](https://tanglephp.com/phpdoc/)
-+ ~~Docusaurus~~
+#### Support: Shimmer (v2) only
 
----
 
-### Examples
+```PHP
+ // include tanglePHP autoload from tanglePHP/bundle
+  require_once("autoload.php");
 
-+ [examples](https://github.com/tanglePHP/examples/tree/main/src)
-    + [Start](https://github.com/tanglePHP/examples/tree/main/src/start)
-    + [Crypto](https://github.com/tanglePHP/examples/tree/main/src/crypto)
-    + [FaucetClient](https://github.com/tanglePHP/examples/tree/main/src/faucet-client)
-    + [MarketClient](https://github.com/tanglePHP/examples/tree/main/src/market-client)
-    + [SingleNodeClient](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client)
-        + [Action](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Action)
-        + [Address](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Address)
-        + [Simple](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Simple)
-    + [Wallet](https://github.com/tanglePHP/examples/tree/main/src/wallet)
+  use tanglePHP\Network\Connect;
+
+  // create network connection
+  $network = new Connect('shimmer:testnet');
+  // print result of node routes
+  $ret = $network->singleNode->routes();
+```
 
 ---
 
-## Other
+### Output initial information
+Below is an example of the return:
 
-+ [Web | Links](./Help/100_web.md)
-+ [Support | Donation](./Help/100_donation.md)
-+ [Joining the discussion](./Help/100_discussion.md)
+```PHP
+  # output
+      // print single information
+      echo PHP_EOL;
+      echo $ret->routes . PHP_EOL;
+  
+  /* Output example
+    ["core\/v2","dashboard-metrics\/v1","indexer\/v1","mqtt\/v1","participation\/v1","poi\/v1","spammer\/v1"]
+  */
+```
+
+---
+
+## Examples
+
++ [00_getRoutes](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Simple/00_getRoutes.php)
+
+---
+
+<- Back to [Overview](000_index.md)

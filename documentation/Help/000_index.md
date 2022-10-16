@@ -40,9 +40,12 @@
         + [searchTag](./003_singlenodeclient_action_searchTag.md) (search index/tag)
         + [checkTransaction](./003_singlenodeclient_action_checkTransaction.md)
         + [getSpendable](./003_singlenodeclient_action_getSpendable.md)
-        + ... soon
     + Simple
-      + soon
+        + [getRoutes](./004_singlenodeclient_simple_getRoutes.md)
+        + [getInfo](./004_singlenodeclient_simple_getInfo.md)
+        + [getBlock](./004_singlenodeclient_simple_getBlock.md)
+        + [getBlockMetadata](./004_singlenodeclient_simple_getBlockMetadata.md)
+        + ... soon
 
 
 + Wallet

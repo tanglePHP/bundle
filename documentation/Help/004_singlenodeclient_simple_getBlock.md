@@ -12,40 +12,52 @@
 
 ---
 
-# Overview
+## SingleNodeClient - getBlock
 
-### Installation
-
-+ [Github | Git](./Help/001_installation_github.md)
-+ [Composer](./Help/001_installation_composer.md)
+To get information about a block a simple call in tanglePHP is needed this is possible with "block()"
 
 ---
 
-### Help
+## Use in tanglePHP
 
-+ [Default](./Help/000_index.md)
-+ [PHPDoc](https://tanglephp.com/phpdoc/)
-+ ~~Docusaurus~~
+#### Support: Shimmer (v2) & IOTA (v1)
 
----
+Get informations about a block
 
-### Examples
+```PHP
+ // include tanglePHP autoload from tanglePHP/bundle
+  require_once("autoload.php");
 
-+ [examples](https://github.com/tanglePHP/examples/tree/main/src)
-    + [Start](https://github.com/tanglePHP/examples/tree/main/src/start)
-    + [Crypto](https://github.com/tanglePHP/examples/tree/main/src/crypto)
-    + [FaucetClient](https://github.com/tanglePHP/examples/tree/main/src/faucet-client)
-    + [MarketClient](https://github.com/tanglePHP/examples/tree/main/src/market-client)
-    + [SingleNodeClient](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client)
-        + [Action](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Action)
-        + [Address](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Address)
-        + [Simple](https://github.com/tanglePHP/examples/tree/main/src/singlenode-client/Simple)
-    + [Wallet](https://github.com/tanglePHP/examples/tree/main/src/wallet)
+  use tanglePHP\Network\Connect;
+
+  // create network connection
+  $network = new Connect('shimmer:testnet');
+  // get result of block
+  $ret = $network->singleNode->block("0x59bf5bbcdedf675bc48ccf25bda04bcb2e608e4f6b933b9714320e0e79b10b03");
+```
 
 ---
 
-## Other
+### Output initial information
+Below is an example of the return:
 
-+ [Web | Links](./Help/100_web.md)
-+ [Support | Donation](./Help/100_donation.md)
-+ [Joining the discussion](./Help/100_discussion.md)
+```PHP
+  # output
+      // print result
+      echo PHP_EOL;
+      echo $ret . PHP_EOL;
+      
+  /* Output example
+   {"protocolVersion":"2","parents":["0x705ed24dc1b0939d847a19a0ba61a759ffc6853573d6ce3742e2283d00077b4f","0x99ff7d5ee637f4af55fa36273d188b1cae2cab87a2e8e8a4d8def43cd93bbbe0","0x9b3ff62417156c3d03f20fec42b5d30909170dae7edb895da62ce6551d090c4f","0xf1ec0644d82122101452cff19747a52d9db20de8916d1d14e5758cfc6a299cff"],"payload":{"type":5,"tag":"0x2374616e676c65504850","data":"0x74616e676c655048502073656e644d65737361676520746573742120666f6c6c6f77206d65206f6e2054776974746572204074616e676c65504850"},"nonce":"458579"}
+  */
+```
+
+---
+
+## Examples
+
++ [08_getBlock](https://github.com/tanglePHP/bundle/blob/main/examples/src/singlenode-client/Simple/08_getBlock.php)
+
+---
+
+<- Back to [Overview](000_index.md)
