@@ -6,9 +6,9 @@
   use tanglePHP\SingleNodeClient\Action\getSpendable;
 
   // create network connection
-  $network = new Connect('iota:devnet');
+  $network = new Connect('shimmer:testnet');
   // get balance with addressbech32
-  $ret = (new getSpendable($network->singleNode))->address('atoi1qrnhxtx78lg577jrffd5y6scv9lxj8maelmvrq2whsjnplr0llp3ucyd3rm')
+  $ret = (new getSpendable($network->singleNode))->address('rms1qrl3rcymcz0tc8exktv95fyx760yrmgpwgt3wxh2j9uf06ml6th0urcdcag')
                                                  ->run();
 
   print_r($ret);

@@ -6,6 +6,8 @@
 
   // print result of node information
   echo $ret = $network->singleNode->info();
+  echo PHP_EOL;
+
   // print single informations
   if($network->singleNode->getProtocolVersion() == '2') {
     echo $ret->name . PHP_EOL;
