@@ -45,7 +45,7 @@
         + [getInfo](./004_singlenodeclient_simple_getInfo.md)
         + [getBlock](./004_singlenodeclient_simple_getBlock.md)
         + [getBlockMetadata](./004_singlenodeclient_simple_getBlockMetadata.md)
-        + ... soon
+        + [getParticipation](./004_singlenodeclient_simple_getParticipation.md) (Staking information)
 
 
 + Wallet
