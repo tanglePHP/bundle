@@ -97,7 +97,6 @@ Below is an example of the return:
 
 ## PHPDoc
 
-+ [method_routes](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-Connector.html#method_routes)
 + [V1 - method_addressParticipation](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV1.html#method_addressParticipation)
 + [V1 - method_eventParticipation](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV1.html#method_eventParticipation)
 + [V1 - method_eventStatusParticipation](https://tanglephp.com/phpdoc/classes/tanglePHP-SingleNodeClient-ConnectorV1.html#method_eventStatusParticipation)
