@@ -24,8 +24,6 @@
 + Basic
     + [Connection](./002_basic_connection.md)
     + [Check FaucetServer|ChronicleNode](./002_basic_check_connection.md)
-    + ... soon
-
 
 + Core (Crypto)
     + [Mnemonic (create | check)](./002_basic_crypto_mnemonic.md)
