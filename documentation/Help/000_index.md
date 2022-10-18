@@ -49,7 +49,10 @@
 
 
 + Wallet
-    + soon
+  + [openWallet](./005_wallet_open.md)
+  + [useWallet](./005_wallet_use.md)
+  + [searchAddresses](./005_wallet_searchAddresses.md)
+  + [sendToken](./005_wallet_sendToken.md)
 
 
 + Troubleshooting
