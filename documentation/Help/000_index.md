@@ -20,8 +20,10 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 
 ### Installation
 
-+ [Github | Git](./001_installation_github.md)
-+ [Composer](./001_installation_composer.md) (Recommended for easy updates)
+There are several ways to install tanglePHP, you can find two instructions here:
+
++ Install tanglePHP via [Github | Git](./001_installation_github.md)
++ For the easy way, also regarding updates, I would recommend [Composer](./001_installation_composer.md)
 
 ### Getting Started
 
@@ -61,6 +63,21 @@ To familiarize yourself with tanglePHP, I recommend starting here and getting an
 
 + If you have any problems, don't hesitate to get in touch.
     + [Troubleshooting](./100_troubleshooting.md)
+
+---
+
+### Related links
+
+To learn more about IOTA and the networks or ecosystem and to understand it better, visit the official [wiki](https://wiki.iota.org/).
+
++ V2 (stardust network)
+  + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0025/core-rest-api.yaml)
+  + [Indexer REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/indexer-api/tips/TIP-0026/indexer-rest-api.yaml)
+  + [Faucet - testnet](https://faucet.testnet.shimmer.network/)
++ V1 (chrysalis network)
+  + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0013/rest-api.yaml)
+  + [Faucet - devnet](https://faucet.chrysalis-devnet.iota.cafe/)
+
 
 ---
 
