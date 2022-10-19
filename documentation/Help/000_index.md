@@ -14,12 +14,18 @@
 
 # Overview
 
+Client library for IOTA chrysalis & stardust network, implemeted in PHP to strongly type the objects sent and received from the API.
+
+_The aim of the this lib is to offer PHP developers an easy way to interact with the Stardust protocol._
+
 ### Installation
 
 + [Github | Git](./001_installation_github.md)
-+ [Composer](./001_installation_composer.md)
++ [Composer](./001_installation_composer.md) (Recommended for easy updates)
 
 ### Getting Started
+
+To familiarize yourself with tanglePHP, I recommend starting here and getting an insight. The help pages always combine a description of the functions, step-by-step instructions, examples with outputs and links to examples and phpdoc.
 
 + Basic
     + [Connection](./002_basic_connection.md)
