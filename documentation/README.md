@@ -39,7 +39,22 @@ For an easy start I recommend calling up the [help](./Help/000_index.md) page, t
 
 ---
 
-### Examples
+### Related links
+
+To learn more about IOTA and the networks or ecosystem and to understand it better, visit the official [wiki](https://wiki.iota.org/).
+
++ V2 (stardust network)
+  + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0025/core-rest-api.yaml)
+  + [Indexer REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/indexer-api/tips/TIP-0026/indexer-rest-api.yaml)
+  + [Faucet - testnet](https://faucet.testnet.shimmer.network/)
++ V1 (chrysalis network)
+  + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0013/rest-api.yaml)
+  + [Faucet - devnet](https://faucet.chrysalis-devnet.iota.cafe/)
+
+
+---
+
+### tanglePHP examples
 
 You can find simple examples of the full range of functions here.
 
