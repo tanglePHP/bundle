@@ -27,7 +27,8 @@ There are several ways to install tanglePHP, you can find two instructions here:
 
 ### Getting Started
 
-To familiarize yourself with tanglePHP, I recommend starting here and getting an insight. The help pages always combine a description of the functions, step-by-step instructions, examples with outputs and links to examples and phpdoc.
+To familiarize yourself with tanglePHP, I recommend starting here and getting an insight. The help pages always combine a description of the functions, step-by-step instructions,
+examples with outputs and links to examples and phpdoc.
 
 + The Basics
     + [Connection](./002_basic_connection.md)
@@ -55,10 +56,10 @@ To familiarize yourself with tanglePHP, I recommend starting here and getting an
 
 
 + Wallet
-  + [openWallet](./005_wallet_open.md)
-  + [useWallet](./005_wallet_use.md)
-  + [searchAddresses](./005_wallet_searchAddresses.md)
-  + [sendToken](./005_wallet_sendToken.md)
+    + [openWallet](./005_wallet_open.md)
+    + [useWallet](./005_wallet_use.md)
+    + [searchAddresses](./005_wallet_searchAddresses.md)
+    + [sendToken](./005_wallet_sendToken.md)
 
 
 + If you have any problems, don't hesitate to get in touch.
@@ -71,13 +72,12 @@ To familiarize yourself with tanglePHP, I recommend starting here and getting an
 To learn more about IOTA and the networks or ecosystem and to understand it better, visit the official [wiki](https://wiki.iota.org/).
 
 + V2 (stardust network)
-  + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0025/core-rest-api.yaml)
-  + [Indexer REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/indexer-api/tips/TIP-0026/indexer-rest-api.yaml)
-  + [Faucet - testnet](https://faucet.testnet.shimmer.network/)
+    + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0025/core-rest-api.yaml)
+    + [Indexer REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/indexer-api/tips/TIP-0026/indexer-rest-api.yaml)
+    + [Faucet - testnet](https://faucet.testnet.shimmer.network/)
 + V1 (chrysalis network)
-  + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0013/rest-api.yaml)
-  + [Faucet - devnet](https://faucet.chrysalis-devnet.iota.cafe/)
-
+    + [REST API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/iotaledger/tips/main/tips/TIP-0013/rest-api.yaml)
+    + [Faucet - devnet](https://faucet.chrysalis-devnet.iota.cafe/)
 
 ---
 
