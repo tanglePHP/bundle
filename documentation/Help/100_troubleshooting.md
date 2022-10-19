@@ -14,6 +14,9 @@ ___
 
 # Troubleshooting
 
+Troubleshooting is an important measure to identify and eliminate errors and problems.
+If you have any problems, don't hesitate to get in touch.
+
 + [Joining the discussion](./100_discussion.md)
 + [Report Bugs](https://github.com/iota-community/iota.php/issues)
 

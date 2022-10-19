@@ -27,7 +27,7 @@ _The aim of the this lib is to offer PHP developers an easy way to interact with
 
 To familiarize yourself with tanglePHP, I recommend starting here and getting an insight. The help pages always combine a description of the functions, step-by-step instructions, examples with outputs and links to examples and phpdoc.
 
-+ Basic
++ The Basics
     + [Connection](./002_basic_connection.md)
     + [Check FaucetServer|ChronicleNode](./002_basic_check_connection.md)
 
@@ -42,13 +42,13 @@ To familiarize yourself with tanglePHP, I recommend starting here and getting an
         + [sendMessage](./003_singlenodeclient_action_sendMessage.md) (send taggedData)
         + [sendTransaction](./003_singlenodeclient_action_sendTransaction.md) (send IOTA/SMR)
         + [searchTag](./003_singlenodeclient_action_searchTag.md) (search index/tag)
+        + [getSpendable](./003_singlenodeclient_action_getSpendable.md) (receive sender information)
         + [checkTransaction](./003_singlenodeclient_action_checkTransaction.md)
-        + [getSpendable](./003_singlenodeclient_action_getSpendable.md)
     + Simple
-        + [getRoutes](./004_singlenodeclient_simple_getRoutes.md)
-        + [getInfo](./004_singlenodeclient_simple_getInfo.md)
-        + [getBlock](./004_singlenodeclient_simple_getBlock.md)
-        + [getBlockMetadata](./004_singlenodeclient_simple_getBlockMetadata.md)
+        + [getRoutes](./004_singlenodeclient_simple_getRoutes.md) (Returns the available API route groups of the node)
+        + [getInfo](./004_singlenodeclient_simple_getInfo.md) (Returns general information about the node)
+        + [getBlock](./004_singlenodeclient_simple_getBlock.md) (Find a block by its identifier)
+        + [getBlockMetadata](./004_singlenodeclient_simple_getBlockMetadata.md) (Find the metadata of a given block)
         + [getParticipation](./004_singlenodeclient_simple_getParticipation.md) (Staking information)
 
 
@@ -59,7 +59,7 @@ To familiarize yourself with tanglePHP, I recommend starting here and getting an
   + [sendToken](./005_wallet_sendToken.md)
 
 
-+ Troubleshooting
++ If you have any problems, don't hesitate to get in touch.
     + [Troubleshooting](./100_troubleshooting.md)
 
 ---
