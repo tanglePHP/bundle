@@ -53,7 +53,7 @@ final class Connector extends AbstractConnector {
    * @throws ApiException
    * @throws HelperException
    */
-  public function price(string|array $currencies = 'usd,eur'): Price {
+  public function price(string|array $currencies = 'usd,eur'): Price|JSON {
     if(is_array($currencies)) {
       $currencies = implode(',', $currencies);
     }
@@ -68,7 +68,7 @@ final class Connector extends AbstractConnector {
                             ->callback(Price::class)
                             ->fetchJSON($this->ENDPOINT->TIMEOUT);
     //
-    isset($ret->status) || isset($ret->error) ? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
+    (isset($ret->status) || isset($ret->error))? $ret = new Price($this->ENDPOINT->network->readTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp')) : $this->ENDPOINT->network->writeTmpFile('market-client-' . __FUNCTION__ . '-' . $this->coinId . '.tmp', $ret);
 
     return $ret;
   }
