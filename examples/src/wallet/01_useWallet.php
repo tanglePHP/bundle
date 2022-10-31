@@ -1,12 +1,13 @@
 <?php
   // include tanglePHP autoload from tanglePHP/bundle
   require_once("../../../autoload.php");
-  // create network connection
-  $network = new \tanglePHP\Network\Connect('shimmer:testnet');
   // create mnemonic
   $mnemonic = require_once("../../.assets/createMnemonic.php");
   // Open wallet
-  $wallet    = new \tanglePHP\Wallet\Run($mnemonic, $network->singleNode);
+  $wallet    = new \tanglePHP\Wallet\Run($mnemonic, 'shimmer:testnet');
+  // alternative: Open wallet
+  # $wallet = tanglePHP\Wallet\Run::open($mnemonic, 'shimmer:testnet');
+
   $address_0 = $wallet->address();
   $address_1 = $wallet->address(0, 1);
   // outputs
