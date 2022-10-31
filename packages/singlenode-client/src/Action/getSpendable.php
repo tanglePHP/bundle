@@ -101,7 +101,12 @@ final class getSpendable extends AbstractAction {
         if(!$output->metadata->isSpent) {
           $block = $this->client->block($output->metadata->blockId);
           //
+          if(!isset($block->payload)) {
+            continue;
+          }
+          //
           $amount = 0;
+          //
           foreach($block->payload->essence->outputs as $essenceOutput) {
             if(TransactionHelper::getSenderFromUnlocks($essenceOutput->unlockConditions, $this->client) == $this->addressBech32) {
               $amount = $amount + $essenceOutput->amount;
