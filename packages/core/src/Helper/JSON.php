@@ -32,12 +32,20 @@ final class JSON implements ArrayAccess {
   }
 
   /**
-   * @param $offset
-   * @param $value
+   * Offset to set
+   *
+   * @link https://php.net/manual/en/arrayaccess.offsetset.php
+   *
+   * @param mixed $offset <p>
+   *                      The offset to assign the value to.
+   *                      </p>
+   * @param mixed $value  <p>
+   *                      The value to set.
+   *                      </p>
    *
    * @return void
    */
-  public function offsetSet($offset, $value): void {
+  public function offsetSet(mixed $offset, mixed $value): void {
     if(is_null($offset)) {
       $this->array[] = $value;
     }
@@ -47,29 +55,50 @@ final class JSON implements ArrayAccess {
   }
 
   /**
-   * @param $offset
+   * Whether a offset exists
    *
-   * @return bool
+   * @link https://php.net/manual/en/arrayaccess.offsetexists.php
+   *
+   * @param mixed $offset <p>
+   *                      An offset to check for.
+   *                      </p>
+   *
+   * @return bool true on success or false on failure.
+   * </p>
+   * <p>
+   * The return value will be casted to boolean if non-boolean was returned.
    */
-  public function offsetExists($offset): bool {
+  public function offsetExists(mixed $offset): bool {
     return isset($this->array[$offset]);
   }
 
   /**
-   * @param $offset
+   * Offset to unset
+   *
+   * @link https://php.net/manual/en/arrayaccess.offsetunset.php
+   *
+   * @param mixed $offset <p>
+   *                      The offset to unset.
+   *                      </p>
    *
    * @return void
    */
-  public function offsetUnset($offset): void {
+  public function offsetUnset(mixed $offset): void {
     unset($this->array[$offset]);
   }
 
   /**
-   * @param $offset
+   * Offset to retrieve
    *
-   * @return mixed
+   * @link https://php.net/manual/en/arrayaccess.offsetget.php
+   *
+   * @param mixed $offset <p>
+   *                      The offset to retrieve.
+   *                      </p>
+   *
+   * @return mixed Can return all value types.
    */
-  public function offsetGet($offset): mixed {
+  public function offsetGet(mixed $offset): mixed {
     return $this->array[$offset] ?? null;
   }
 

@@ -14,6 +14,8 @@ use tanglePHP\Core\Exception\Converter as ConverterException;
  */
 final class Converter {
   /**
+   * convert string to hex
+   *
    * @param string $val
    * @param bool   $reverse
    *
@@ -26,6 +28,8 @@ final class Converter {
   }
 
   /**
+   * convert hex to decimal
+   *
    * @param string $val
    *
    * @return string
@@ -35,6 +39,8 @@ final class Converter {
   }
 
   /**
+   * convert decimal to hex
+   *
    * @param string $val
    *
    * @return string
@@ -44,6 +50,8 @@ final class Converter {
   }
 
   /**
+   * convert string to hex and add 0x as pre
+   *
    * @param string $val
    *
    * @return string
@@ -53,6 +61,8 @@ final class Converter {
   }
 
   /**
+   * convert string to int
+   *
    * @param string $value
    *
    * @return string
@@ -62,6 +72,8 @@ final class Converter {
   }
 
   /**
+   * convert hex to string
+   *
    * @param string $val
    *
    * @return string|false
@@ -76,6 +88,8 @@ final class Converter {
   }
 
   /**
+   * convert hex to int
+   *
    * @param string $val
    *
    * @return int
@@ -90,6 +104,8 @@ final class Converter {
   }
 
   /**
+   * convert hex to bigInt
+   *
    * @param $hex
    *
    * @return string
@@ -105,6 +121,8 @@ final class Converter {
   }
 
   /**
+   * convert bigInt to Hex
+   *
    * @param $bigInt
    *
    * @return string
@@ -121,6 +139,8 @@ final class Converter {
   }
 
   /**
+   * convert bits to hex
+   *
    * @param string $val
    *
    * @return string
@@ -135,6 +155,8 @@ final class Converter {
   }
 
   /**
+   * convert hex to bits
+   *
    * @param string $val
    *
    * @return string
@@ -153,6 +175,8 @@ final class Converter {
   }
 
   /**
+   * convert hex to byteArray
+   *
    * @param string $val
    *
    * @return array
@@ -168,6 +192,8 @@ final class Converter {
   }
 
   /**
+   * convert byteArray to hex
+   *
    * @param array $data
    *
    * @return string
@@ -180,6 +206,8 @@ final class Converter {
   }
 
   /**
+   * convert string to byteArray
+   *
    * @param string $val
    *
    * @return array
@@ -189,6 +217,8 @@ final class Converter {
   }
 
   /**
+   * convert byteArray to string
+   *
    * @param array $data
    *
    * @return string
@@ -200,7 +230,13 @@ final class Converter {
   }
 
   /**
-   * @param string $val
+   * Encodes data with MIME base64
+   *
+   * @link https://php.net/manual/en/function.base64-encode.php
+   *
+   * @param string $val    <p>
+   *                       The data to encode.
+   *                       </p>
    *
    * @return string
    */
@@ -209,8 +245,17 @@ final class Converter {
   }
 
   /**
-   * @param string $val
-   * @param bool   $strict
+   * Decodes data encoded with MIME base64
+   *
+   * @link https://php.net/manual/en/function.base64-decode.php
+   *
+   * @param string $string <p>
+   *                       The encoded data.
+   *                       </p>
+   * @param bool   $strict [optional] <p>
+   *                       Returns false if input contains character from outside the base64
+   *                       alphabet.
+   *                       </p>
    *
    * @return string|false
    */
@@ -219,6 +264,8 @@ final class Converter {
   }
 
   /**
+   * convert string to base58
+   *
    * @param string $val
    * @param string $alphabet
    *
@@ -260,6 +307,8 @@ final class Converter {
   }
 
   /**
+   * convert base58 to string
+   *
    * @param string $val
    * @param string $alphabet
    *

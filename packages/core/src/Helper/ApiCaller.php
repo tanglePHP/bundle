@@ -61,6 +61,8 @@ final class ApiCaller {
   }
 
   /**
+   * set url
+   *
    * @param string $url
    *
    * @return $this
@@ -72,6 +74,8 @@ final class ApiCaller {
   }
 
   /**
+   * set route
+   *
    * @param string $route
    *
    * @return $this
@@ -83,6 +87,8 @@ final class ApiCaller {
   }
 
   /**
+   * set query
+   *
    * @param array $query
    *
    * @return $this
@@ -94,6 +100,8 @@ final class ApiCaller {
   }
 
   /**
+   * set methode (post|get)
+   *
    * @param string $method
    *
    * @return $this
@@ -115,6 +123,8 @@ final class ApiCaller {
   }
 
   /**
+   * set request data
+   *
    * @param mixed $requestData
    *
    * @return $this
@@ -126,6 +136,8 @@ final class ApiCaller {
   }
 
   /**
+   * set auth userpass
+   *
    * @param string|null $userPass
    *
    * @return $this
@@ -141,6 +153,8 @@ final class ApiCaller {
   }
 
   /**
+   * set basePath
+   *
    * @param string $basePath
    *
    * @return $this
@@ -152,6 +166,8 @@ final class ApiCaller {
   }
 
   /**
+   * set callback class
+   *
    * @param string $callback
    *
    * @return $this
@@ -163,6 +179,8 @@ final class ApiCaller {
   }
 
   /**
+   * set curl settings
+   *
    * @param string $key
    * @param        $value
    *
@@ -175,6 +193,8 @@ final class ApiCaller {
   }
 
   /**
+   * exec curl
+   *
    * @param int $timeout
    *
    * @return string
@@ -225,6 +245,8 @@ final class ApiCaller {
   }
 
   /**
+   * Return curl status
+   *
    * @return array|false
    */
   public function getHandleStatus(): array|false {
@@ -232,6 +254,8 @@ final class ApiCaller {
   }
 
   /**
+   * return curl getinfo
+   *
    * @return mixed
    */
   public function getHandleInfo(): mixed {
@@ -239,6 +263,8 @@ final class ApiCaller {
   }
 
   /**
+   * return curl content
+   *
    * @return string|null
    */
   public function getHandleContent(): string|null {
@@ -246,6 +272,8 @@ final class ApiCaller {
   }
 
   /**
+   * return content as binary
+   *
    * @param int $timeout
    *
    * @return string
@@ -266,6 +294,8 @@ final class ApiCaller {
   }
 
   /**
+   * return content if json
+   *
    * @param int $timeout
    *
    * @return mixed
@@ -297,6 +327,8 @@ final class ApiCaller {
   }
 
   /**
+   * return content as array if json
+   *
    * @param int $timeout
    *
    * @return array
@@ -309,6 +341,8 @@ final class ApiCaller {
   }
 
   /**
+   * return curl status
+   *
    * @param int $timeout
    *
    * @return array|bool

@@ -23,11 +23,15 @@ final class SMR extends AbstractAmount {
     'smr'  => 1000000,
   ];
   /**
+   * max token supply
+   *
    * @var int
    */
   protected int $max = 1450896407249092;
 
   /**
+   * Convert Amount to smr
+   *
    * @return string
    */
   public function toSMR(): string {
@@ -35,6 +39,8 @@ final class SMR extends AbstractAmount {
   }
 
   /**
+   * Convert Amount to glow
+   *
    * @return string
    */
   public function toGlow(): string {

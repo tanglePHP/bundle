@@ -27,11 +27,15 @@ final class IOTA extends AbstractAmount {
     'pi' => 1000000000000000,
   ];
   /**
+   * max token supply
+   *
    * @var int
    */
   protected int $max = 2779530283277761;
 
   /**
+   * Convert Amount to Pi
+   *
    * @return string
    */
   public function toPi(): string {
@@ -39,6 +43,8 @@ final class IOTA extends AbstractAmount {
   }
 
   /**
+   * Convert Amount to Ti
+   *
    * @return string
    */
   public function toTi(): string {
@@ -46,6 +52,8 @@ final class IOTA extends AbstractAmount {
   }
 
   /**
+   * Convert Amount to Gi
+   *
    * @return string
    */
   public function toGi(): string {
@@ -53,6 +61,8 @@ final class IOTA extends AbstractAmount {
   }
 
   /**
+   * Convert Amount to Mi
+   *
    * @return string
    */
   public function toMi(): string {
@@ -60,6 +70,8 @@ final class IOTA extends AbstractAmount {
   }
 
   /**
+   * Convert Amount to Ki
+   *
    * @return string
    */
   public function toKi(): string {
@@ -67,6 +79,8 @@ final class IOTA extends AbstractAmount {
   }
 
   /**
+   * Convert Amount to i
+   *
    * @return string
    */
   public function toi(): string {
