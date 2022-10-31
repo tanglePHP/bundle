@@ -51,9 +51,10 @@ final class sendMessage extends AbstractAction {
     }
 
     return new ReturnSubmitBlock([
-      'blockId'     => $ret->messageId,
+      'blockId'     => $ret->messageId ?? 'unknown',
       'check'       => $checked ?? null,
-      'explorerUrl' => $this->client->ENDPOINT->network->getExplorerUrlMessage($ret->messageId),
+      'explorerUrl' => $this->client->ENDPOINT->network->getExplorerUrlMessage($ret->messageId ?? ''),
+      'return'      => $ret,
     ], $this->client->ENDPOINT->network);
   }
 
@@ -69,9 +70,10 @@ final class sendMessage extends AbstractAction {
     }
 
     return new ReturnSubmitBlock([
-      'blockId'     => $ret->blockId,
+      'blockId'     => $ret->blockId ?? 'unknown',
       'check'       => $checked ?? null,
-      'explorerUrl' => $this->client->ENDPOINT->network->getExplorerUrlBlock($ret->blockId),
+      'explorerUrl' => $this->client->ENDPOINT->network->getExplorerUrlBlock($ret->blockId ?? ''),
+      'return'      => $ret,
     ], $this->client->ENDPOINT->network);
   }
 
