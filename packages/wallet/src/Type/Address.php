@@ -3,6 +3,7 @@
 use tanglePHP\SingleNodeClient\Models\ReturnAddressBalance;
 use tanglePHP\Wallet\Models\TraitBalance;
 use tanglePHP\Wallet\Models\TraitFaucet;
+use tanglePHP\Wallet\Models\TraitNFT;
 use tanglePHP\Wallet\Models\TraitSend;
 use tanglePHP\Wallet\Run;
 use tanglePHP\Core\Type\Ed25519Address;
@@ -20,12 +21,13 @@ use SodiumException;
  * @package      tanglePHP\Wallet\Type
  * @author       Stefan Braun <stefan.braun@tanglePHP.com>
  * @copyright    Copyright (c) 2022, StefanBraun
- * @version      2022.10.06-2051
+ * @version      2022.10.28-1030
  */
 final class Address {
   use TraitBalance;
   use TraitFaucet;
   use TraitSend;
+  use TraitNFT;
 
   /**
    * @var Bip32Path
