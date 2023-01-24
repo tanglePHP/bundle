@@ -66,7 +66,14 @@ final class getNFT extends AbstractAction {
           if($feature->type == 2) {
             $data = TransactionHelper::parseData($feature->data);
           }
+
+          if($feature->type == 1) {
+            $immutableIssuer       = Converter::remove0x($feature->address->pubKeyHash);
+            $immutableIssuer_bech32 = Converter::ed25519ToBech32($immutableIssuer, TransactionHelper::getClientProtocol_bech32($this->client));
+          }
         }
+
+
         $nfts[] = new ReturnNFT([
           'blockId'       => $output->metadata->blockId,
           'transactionId' => $output->metadata->transactionId,
@@ -74,6 +81,8 @@ final class getNFT extends AbstractAction {
           'nftId_bech32'  => $output->output->nftId_bech32,
           'explorerUrl'   => $this->client->ENDPOINT->network->getExplorerUrlNFT($output->output->nftId_bech32),
           'data'          => $data,
+          'immutableIssuer' => $immutableIssuer,
+          'immutableIssuer_bech32' => $immutableIssuer_bech32,
         ], $this->client->ENDPOINT->network);
       }
       $cursor = $response->cursor ?? false;
