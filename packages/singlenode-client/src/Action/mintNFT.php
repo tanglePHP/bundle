@@ -23,10 +23,10 @@ use tanglePHP\SingleNodeClient\Models\ReturnSubmitBlock;
 /**
  * Class mintNFT
  *
- * @package      tanglePHP\singlenode-client\Action
+ * @package      tanglePHP\SingleNodeClient\Action
  * @author       Stefan Braun <stefan.braun@tanglePHP.com>
- * @copyright    Copyright (c) 2022, StefanBraun
- * @version      2022.08.31-1316
+ * @copyright    Copyright (c) 2023, StefanBraun
+ * @version      2023.02.02-0914
  */
 final class mintNFT extends AbstractAction {
   /**
@@ -53,6 +53,10 @@ final class mintNFT extends AbstractAction {
    * @var string|null
    */
   protected ?string $metadata;
+  /**
+   * @var string|null
+   */
+  protected ?string $metadataMutable;
 
   /**
    * @param Ed25519Seed|Mnemonic|string|array $seedInput
@@ -111,17 +115,41 @@ final class mintNFT extends AbstractAction {
   /**
    * @param string|array $data
    * @param bool         $_convertToHex
+   * @param bool         $immutable
    *
    * @return $this
    * @throws HelperException
    */
-  public function metadata(string|array $data, bool $_convertToHex = true): self {
+  public function metadata(string|array $data, bool $_convertToHex = true, bool $immutable = true): self {
     if(is_array($data)) {
       $data = (JSON::create($data))->__toString();
     }
-    $this->metadata = Converter::HexString0x(($_convertToHex ? Converter::string2Hex($data) : $data));
+    $data = Converter::HexString0x(($_convertToHex ? Converter::string2Hex($data) : $data));
+    $immutable ? $this->metadata = $data : $this->metadataMutable = $data;
 
     return $this;
+  }
+
+  /**
+   * @param string|array $data
+   * @param bool         $_convertToHex
+   *
+   * @return $this
+   * @throws HelperException
+   */
+  public function metadataMutable(string|array $data, bool $_convertToHex = true): self {
+    return $this->metadata($data, $_convertToHex, false);
+  }
+
+  /**
+   * @param string|array $data
+   * @param bool         $_convertToHex
+   *
+   * @return $this
+   * @throws HelperException
+   */
+  public function metadataImmutable(string|array $data, bool $_convertToHex = true): self {
+    return $this->metadata($data, $_convertToHex, true);
   }
 
   /**
@@ -175,10 +203,17 @@ final class mintNFT extends AbstractAction {
     $nftOutput = new Output\NFT(0);
     $nftOutput->addFeaturesIssuer(new Ed25519($address->toAddress()), true)
               ->addUnlockConditionsAddress(new Ed25519($toAddress));
-    // add metadata to nftOutput
+    // add metadataImmutable to nftOutput
     if(isset($this->metadata)) {
       $nftOutput->addFeaturesMetadata($this->metadata, true);
     }
+    // add metadataMutable to nftOutput
+    if(isset($this->metadataMutable)) {
+      $nftOutput->addFeaturesMetadata($this->metadataMutable, false);
+    }
+
+
+
     // create error message if StorageDeposit < amount and amount !== null
     $minStorageDeposit = TransactionHelper::getStorageDeposit($nftOutput, $this->client);
     if(!is_null($this->amount) && $this->amount < $minStorageDeposit) {
