@@ -71,6 +71,15 @@ final class getNFT extends AbstractAction {
             $immutableIssuer_bech32 = Converter::ed25519ToBech32($immutableIssuer, TransactionHelper::getClientProtocol_bech32($this->client));
           }
         }
+        foreach($output->output->features ?? [] as $feature) {
+          if($feature->type == 2) {
+            $dataMutable = TransactionHelper::parseData($feature->data);
+          }
+          if($feature->type == 1) {
+            $mutableIssuer        = Converter::remove0x($feature->address->pubKeyHash);
+            $mutableIssuer_bech32 = Converter::ed25519ToBech32($mutableIssuer, TransactionHelper::getClientProtocol_bech32($this->client));
+          }
+        }
         $nfts[] = new ReturnNFT([
           'blockId'                => $output->metadata->blockId,
           'transactionId'          => $output->metadata->transactionId,
@@ -78,6 +87,7 @@ final class getNFT extends AbstractAction {
           'nftId_bech32'           => $output->output->nftId_bech32,
           'explorerUrl'            => $this->client->ENDPOINT->network->getExplorerUrlNFT($output->output->nftId_bech32),
           'data'                   => $data,
+          'data_mutable'           => $dataMutable ?? [],
           'immutableIssuer'        => $immutableIssuer,
           'immutableIssuer_bech32' => $immutableIssuer_bech32,
         ], $this->client->ENDPOINT->network);
