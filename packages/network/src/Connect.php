@@ -137,7 +137,7 @@ final class Connect {
     $this->ENDPOINT->market->connector = $this->marketServer = new MarketClientConnector($this->ENDPOINT->market);
     #$this->ENDPOINT->market->init();
     //
-    $protocolClassName = '\\tanglePHP\\Network\\Protocol\\v' . $this->info['protocolVersion'] . '_' . $this->info['network'] . '_' . $this->info['networkName'];
+    $protocolClassName = '\\tanglePHP\\Network\\Protocol\\v' . $this->info['protocolVersion'] . '_' . $this->info['network'] . '_' . str_replace('-', '_', $this->info['networkName']);
     if(!class_exists($protocolClassName)) {
       throw new Exception("tanglePHP does not support this unknown protocol. : 'v" . $this->info['protocolVersion'] . '_' . $this->info['network'] . '_' . $this->info['networkName'] . "'");
     }
